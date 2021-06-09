@@ -1,2 +1,2 @@
-# HaufeHackathonFreiburg2021
+# Haufe Hackathon Freiburg 2021
 https://hackathon-freiburg.de/
