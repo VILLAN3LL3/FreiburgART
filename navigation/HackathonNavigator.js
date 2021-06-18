@@ -1,6 +1,5 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation-stack";
-import { createBottomTabNavigator } from "react-navigation-tabs";
 import { createAppContainer } from "react-navigation";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import MapScreen from "../screens/MapScreen";
@@ -16,7 +15,6 @@ const defaultStackNavigationOptions = {
   headerTitleStyle: {},
   headerBackTitleStyle: {},
   headerTintColor: "white",
-  headerTitle: "A dummy title",
 };
 
 const MapScreenNavigator = createStackNavigator(
