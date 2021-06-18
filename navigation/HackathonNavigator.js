@@ -3,9 +3,9 @@ import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { createAppContainer } from "react-navigation";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import ScreenOne from "../screens/ScreenOne";
-import ScreenTwo from "../screens/ScreenTwo";
-import ScreenThree from "../screens/SecreenThree";
+import MapScreen from "../screens/MapScreen";
+import ListScreen from "../screens/ListScreen";
+import DetailScreen from "../screens/DetailScreen";
 import Colors from "../constants/Colors";
 
 const defaultStackNavigationOptions = {
@@ -18,27 +18,27 @@ const defaultStackNavigationOptions = {
   headerTitle: "A dummy title",
 };
 
-const ScreenOneNavigator = createStackNavigator(
+const MapScreenNavigator = createStackNavigator(
   {
-    ScreenOne: ScreenOne,
+    Karte: MapScreen,
   },
   {
     defaultNavigationOptions: defaultStackNavigationOptions,
   }
 );
 
-const ScreenTwoNavigator = createStackNavigator(
+const ListScreenNavigator = createStackNavigator(
   {
-    ScreenTwo: ScreenTwo,
+    Liste: ListScreen,
   },
   {
     defaultNavigationOptions: defaultStackNavigationOptions,
   }
 );
 
-const ScreenThreeNavigator = createStackNavigator(
+const DetailScreenNavigator = createStackNavigator(
   {
-    ScreenThree: ScreenThree,
+    Details: DetailScreen,
   },
   {
     defaultNavigationOptions: defaultStackNavigationOptions,
@@ -47,7 +47,7 @@ const ScreenThreeNavigator = createStackNavigator(
 
 const myTabScreenConfig = {
   Start: {
-    screen: ScreenOneNavigator,
+    screen: MapScreenNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
         return (
@@ -62,7 +62,7 @@ const myTabScreenConfig = {
     },
   },
   Second: {
-    screen: ScreenTwoNavigator,
+    screen: ListScreenNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
         return (
@@ -77,7 +77,7 @@ const myTabScreenConfig = {
     },
   },
   Third: {
-    screen: ScreenThreeNavigator,
+    screen: DetailScreenNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
         return (
