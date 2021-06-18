@@ -7,6 +7,7 @@ import MapScreen from "../screens/MapScreen";
 import ListScreen from "../screens/ListScreen";
 import DetailScreen from "../screens/DetailScreen";
 import Colors from "../constants/Colors";
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
 const defaultStackNavigationOptions = {
   headerStyle: {
@@ -46,53 +47,38 @@ const DetailScreenNavigator = createStackNavigator(
 );
 
 const myTabScreenConfig = {
-  Start: {
+  Map: {
     screen: MapScreenNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
-        return (
-          <MaterialCommunityIcons
-            name="map-search"
-            size={25}
-            color={tabInfo.tintColor}
-          ></MaterialCommunityIcons>
-        );
+        return <MaterialCommunityIcons name='map-search' size={25} color={tabInfo.tintColor}></MaterialCommunityIcons>;
       },
       tabBarColor: Colors.primary,
     },
   },
-  Second: {
+  List: {
     screen: ListScreenNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
-        return (
-          <Ionicons
-            name="ios-star"
-            size={25}
-            color={tabInfo.tintColor}
-          ></Ionicons>
-        );
+        return <Ionicons name='ios-star' size={25} color={tabInfo.tintColor}></Ionicons>;
       },
-      tabBarColor: Colors.second,
+      tabBarColor: Colors.primary,
     },
   },
-  Third: {
+  Detail: {
     screen: DetailScreenNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
-        return (
-          <Ionicons
-            name="ios-camera"
-            size={25}
-            color={tabInfo.tintColor}
-          ></Ionicons>
-        );
+        return <Ionicons name='ios-camera' size={25} color={tabInfo.tintColor}></Ionicons>;
       },
-      tabBarColor: Colors.second,
+      tabBarColor: Colors.primary,
     },
   },
 };
 
-const TabNavigator = createBottomTabNavigator(myTabScreenConfig);
+const TabNavigator = createMaterialBottomTabNavigator(myTabScreenConfig, {
+        activeColor: 'white',
+        shifting: true,
+      });
 
 export default createAppContainer(TabNavigator);

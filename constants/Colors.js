@@ -1,5 +1,7 @@
 export default {
-  primary: "#0571ff",
-  second: "#12b8ff",
-  favoriteSelected: "white",
+  primary: '#4E1A3D',
+  secondary: '#CFEED1',
+  third: '#FF2768',
+  fourth: '#05E0E9',
+  favoriteSelected: 'white',
 };
