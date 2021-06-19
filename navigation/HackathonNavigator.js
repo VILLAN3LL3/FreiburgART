@@ -21,6 +21,7 @@ const defaultStackNavigationOptions = {
 const MapScreenNavigator = createStackNavigator(
   {
     Karte: MapScreen,
+    Details: DetailScreen
   },
   {
     defaultNavigationOptions: defaultStackNavigationOptions,
@@ -30,6 +31,7 @@ const MapScreenNavigator = createStackNavigator(
 const ListScreenNavigator = createStackNavigator(
   {
     Liste: ListScreen,
+    Details: DetailScreen
   },
   {
     defaultNavigationOptions: defaultStackNavigationOptions,

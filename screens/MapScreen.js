@@ -85,7 +85,6 @@ const MapScreen = (props) => {
                 ) {
                   return;
                 }
-                console.log(artwork.id);
                 props.navigation.navigate({
                   routeName: 'Details',
                   params: {
