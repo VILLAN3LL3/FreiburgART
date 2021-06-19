@@ -10,6 +10,11 @@ const DetailScreen = (props) => {
   const artworks = ARTWORK_LIST;
   const artworkId = props.navigation.getParam('artworkId');
   const currentArtwork = artworks.find((artwork) => artwork.id === artworkId);
+  let showThreeButton = false;
+  if(currentArtwork.sketchfabUri)
+  {
+    showThreeButton = true;
+  }
 
   return (
     <ScrollView style={styles.container}>
@@ -29,8 +34,9 @@ const DetailScreen = (props) => {
           </Text>
         ))}
       </View>
-      {currentArtwork.sketchfabUri && (
+      {showThreeButton && (
         <Button
+          color={Colors.primaryDisabled}
           title="In 3D ansehen"
           onPress={() => {
             props.navigation.navigate({

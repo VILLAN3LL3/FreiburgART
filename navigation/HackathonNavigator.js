@@ -19,6 +19,16 @@ const defaultStackNavigationOptions = {
   headerTintColor: "white",
 };
 
+const DetailScreenNavigator = createStackNavigator(
+  {
+    Details: DetailScreen,
+    ThreeDimModel: ThreeDimModelScreen, 
+  },
+  {
+    defaultNavigationOptions: defaultStackNavigationOptions,
+  }
+);
+
 const MapScreenNavigator = createStackNavigator(
   {
     Karte: MapScreen,
@@ -42,16 +52,6 @@ const ListScreenNavigator = createStackNavigator(
 const ErfolgeScreenNavigator = createStackNavigator(
   {
     Erfolge: ErfolgeScreen,
-  },
-  {
-    defaultNavigationOptions: defaultStackNavigationOptions,
-  }
-);
-
-const DetailScreenNavigator = createStackNavigator(
-  {
-    Details: DetailScreen,
-    ThreeDimModel: ThreeDimModelScreen, 
   },
   {
     defaultNavigationOptions: defaultStackNavigationOptions,
