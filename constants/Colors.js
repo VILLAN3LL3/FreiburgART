@@ -4,4 +4,5 @@ export default {
   third: '#FF2768',
   fourth: '#05E0E9',
   favoriteSelected: 'white',
+  primaryDisabled: '#b8a3b1',
 };

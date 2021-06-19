@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet} from 'react-native';
+import { Text, View, StyleSheet, Image, ImageBackground } from 'react-native';
 import Colors from '../constants/Colors';
 
 const MarkerCallout = (props) => {
@@ -14,11 +14,13 @@ const MarkerCallout = (props) => {
               ...{ fontWeight: 'bold', fontSize: 12, color: artwork.isCurrentlyAccessible ? 'black' : 'gray' },
             }}
           >
-            {artwork.title}
+            {artwork.title.toUpperCase()}
           </Text>
-          <Text
-            style={{ ...styles.text, ...{ fontSize: 10, color: artwork.isCurrentlyAccessible ? 'black' : 'red' } }}
-          >{artwork.isCurrentlyAccessible ? `${artwork.artists.join(', ')} (${artwork.year})` : 'Dieses Kunstwerk ist zur Zeit nicht zugänglich'}</Text>
+          <Text style={{ ...styles.text, ...{ fontSize: 10, color: artwork.isCurrentlyAccessible ? 'black' : 'red' } }}>
+            {artwork.isCurrentlyAccessible
+              ? `${artwork.artists.join(', ')} (${artwork.year})`
+              : 'Dieses Kunstwerk ist zur Zeit nicht zugänglich'}
+          </Text>
         </View>
       </View>
       <View style={styles.arrowBorder} />
@@ -45,10 +47,10 @@ const styles = StyleSheet.create({
   },
   bubbleContent: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   text: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   arrow: {
     backgroundColor: 'transparent',
