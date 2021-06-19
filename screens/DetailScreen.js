@@ -1,13 +1,10 @@
 import React from 'react';
-import { StyleSheet, ScrollView, Image, Text, View, Alert } from 'react-native';
+import { StyleSheet, ScrollView, Image, Text, View, Alert, Button } from 'react-native';
 import { ARTWORK_LIST } from '../data/dummy-data';
 import { SocialIcon } from 'react-native-elements';
 import Colors from '../constants/Colors';
 import Artwork from "../models/artwork";
 import { Linking } from "react-native";
-
-import Colors from "../constants/Colors";
-import { Button } from "react-native-elements/dist/buttons/Button";
 
 const DetailScreen = (props) => {
   const artworks = ARTWORK_LIST;
@@ -16,7 +13,6 @@ const DetailScreen = (props) => {
 
   return (
     <ScrollView style={styles.container}>
-      {/* <View style={{ ...styles.container, ...props.style }}> */}
       <Image source={{ uri: currentArtwork.imageUrl }} style={styles.image} />
       <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: -35 }}>
         <SocialIcon type='facebook' />
