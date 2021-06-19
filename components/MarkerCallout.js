@@ -8,8 +8,17 @@ const MarkerCallout = (props) => {
     <View style={[styles.container, props.style]}>
       <View style={styles.bubble}>
         <View style={styles.bubbleContent}>
-          <Text style={{...styles.text, ...{fontWeight: 'bold', fontSize: 12}}}>{artwork.title}</Text>
-          <Text style={{...styles.text, ...{fontSize: 10}}}>{`${artwork.artists.join(', ')} (${artwork.year})`}</Text>
+          <Text
+            style={{
+              ...styles.text,
+              ...{ fontWeight: 'bold', fontSize: 12, color: artwork.isCurrentlyAccessible ? 'black' : 'gray' },
+            }}
+          >
+            {artwork.title}
+          </Text>
+          <Text
+            style={{ ...styles.text, ...{ fontSize: 10, color: artwork.isCurrentlyAccessible ? 'black' : 'red' } }}
+          >{artwork.isCurrentlyAccessible ? `${artwork.artists.join(', ')} (${artwork.year})` : 'Dieses Kunstwerk ist zur Zeit nicht zugänglich'}</Text>
         </View>
       </View>
       <View style={styles.arrowBorder} />

@@ -12,7 +12,8 @@ export const ARTWORK_LIST = [
     47.99389,
     7.85218,
     ['https://de.wikipedia.org/wiki/Ulrich_Rückriem'],
-    'https://res.cloudinary.com/julidarockt/image/upload/v1624046770/Ru%CC%88ckriem_Augustinerplatz.jpg'
+    'https://res.cloudinary.com/julidarockt/image/upload/v1624046770/Ru%CC%88ckriem_Augustinerplatz.jpg',
+    true
   ),
   new Artwork(
     2,
@@ -25,7 +26,8 @@ export const ARTWORK_LIST = [
     47.9958,
     7.84147,
     ['https://de.wikipedia.org/wiki/Andrea_Zaumseil'],
-    'https://res.cloudinary.com/julidarockt/image/upload/v1624046776/Zaumseil_Tanzende_Kegel.jpg'
+    'https://res.cloudinary.com/julidarockt/image/upload/v1624046776/Zaumseil_Tanzende_Kegel.jpg',
+    true
   ),
   new Artwork(
     3,
@@ -38,7 +40,8 @@ export const ARTWORK_LIST = [
     47.98511,
     7.85273,
     ['https://de.wikipedia.org/wiki/Thaddäus_Hüppi'],
-    'https://res.cloudinary.com/julidarockt/image/upload/v1624046772/Hu%CC%88ppi_Bu%CC%88ste_auf_Sa%CC%88ule_Wiehre_I.jpg'
+    'https://res.cloudinary.com/julidarockt/image/upload/v1624046772/Hu%CC%88ppi_Bu%CC%88ste_auf_Sa%CC%88ule_Wiehre_I.jpg',
+    true
   ),
   new Artwork(
     4,
@@ -51,7 +54,8 @@ export const ARTWORK_LIST = [
     47.98514,
     7.85182,
     [],
-    'https://res.cloudinary.com/julidarockt/image/upload/v1624046772/Hohorst_Badisches_Saugkalb.jpg'
+    'https://res.cloudinary.com/julidarockt/image/upload/v1624046772/Hohorst_Badisches_Saugkalb.jpg',
+    true
   ),
   new Artwork(
     5,
@@ -67,7 +71,8 @@ export const ARTWORK_LIST = [
       'https://de.wikipedia.org/wiki/Claes_Oldenburg',
       'https://fudder.de/kunst-die-rumsteht-1-claes-oldenburgs-wasserschlauch--118361228.html',
     ],
-    'https://res.cloudinary.com/julidarockt/image/upload/v1624046772/Oldenburg_Gartenschlauch.jpg'
+    'https://res.cloudinary.com/julidarockt/image/upload/v1624046772/Oldenburg_Gartenschlauch.jpg',
+    false
   ),
   new Artwork(
     6,
@@ -80,6 +85,7 @@ export const ARTWORK_LIST = [
     48.00069,
     7.84452,
     ['https://de.wikipedia.org/wiki/Berto_Lardera'],
-    'https://res.cloudinary.com/julidarockt/image/upload/v1624046775/Ladera_Heroischer_Rythmus.jpg'
+    'https://res.cloudinary.com/julidarockt/image/upload/v1624046775/Ladera_Heroischer_Rythmus.jpg',
+    true
   ),
 ];
