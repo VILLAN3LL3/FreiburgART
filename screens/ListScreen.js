@@ -64,7 +64,20 @@ const ListScreen = (props) => {
 
   const ArtworkItemList = ({ item }) => (
     <View style={{ ...styles.productItemContainer, ...props.style }}>
-      <TouchableOpacity onPress={() => {console.log('you clicked on the picture')}}>
+      <TouchableOpacity onPress={(e) => {
+                 if (
+                  e.nativeEvent.action === 'marker-inside-overlay-press' ||
+                  e.nativeEvent.action === 'callout-inside-press'
+                ) {
+                  return;
+                }
+                props.navigation.navigate({
+                  routeName: 'Details',
+                  params: {
+                    artworkId: item.id,
+                  },
+                });
+              }}>
         <View>
           <View style={styles.productImageAndTitleContainer}>
             <ImageBackground
@@ -84,9 +97,20 @@ const ListScreen = (props) => {
           <Button 
           title="Details"
           color={Colors.primary}
-          onPress={() => {
-            console.log('show more details');
-          }}></Button></View>
+          onPress={(e) => {
+                 if (
+                  e.nativeEvent.action === 'marker-inside-overlay-press' ||
+                  e.nativeEvent.action === 'callout-inside-press'
+                ) {
+                  return;
+                }
+                props.navigation.navigate({
+                  routeName: 'Details',
+                  params: {
+                    artworkId: item.id,
+                  },
+                });
+              }}></Button></View>
         </View>
       </TouchableOpacity>
     </View>
