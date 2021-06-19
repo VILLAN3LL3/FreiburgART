@@ -6,7 +6,7 @@ import Geolocation from 'react-native-geolocation-service';
 import MarkerCallout from '../components/MarkerCallout';
 import { SearchBar } from 'react-native-elements';
 import LogoTitle from '../components/LogoTitle';
-import GetIconSource from '../services/artwork-service';
+import { GetIconSource } from '../services/artwork-service';
 
 // https://github.com/react-native-maps/react-native-maps
 // https://dev-yakuza.posstree.com/en/react-native/react-native-maps/

@@ -3,11 +3,20 @@ import { StyleSheet } from 'react-native';
 import HackathonNavigator from './navigation/HackathonNavigator';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
+import Colors from './constants/Colors';
+import { ThemeProvider } from 'react-native-elements';
 
 const fetchFonts = () => {
   return Font.loadAsync({
     unicorn: require('./assets/fonts/Unicorn_Couple.ttf'),
   });
+};
+
+const theme = {
+  colors: {
+    primary: Colors.primary,
+    secondary: Colors.third
+  } 
 };
 
 export default function App() {
@@ -24,7 +33,11 @@ export default function App() {
     );
   }
 
-  return <HackathonNavigator />;
+  return (
+    <ThemeProvider theme={theme}>
+      <HackathonNavigator />
+    </ThemeProvider>
+  );
 }
 
 const styles = StyleSheet.create({
