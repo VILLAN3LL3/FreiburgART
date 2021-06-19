@@ -75,8 +75,8 @@ const MapScreen = (props) => {
             coordinate={{ latitude: artwork.latitude, longitude: artwork.longitude }}
             image={
               artwork.isCurrentlyAccessible
-                ? require('../assets/easel-96.png')
-                : require('../assets/easel-disabled-96.png')
+                ? (artwork.isVisited ? require('../assets/sculpture-visited-96.png'): require('../assets/sculpture-96.png'))
+                : require('../assets/sculpture-disabled-96.png')
             }
           >
             <Callout
