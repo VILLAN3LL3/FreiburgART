@@ -14,7 +14,8 @@ export const ARTWORK_LIST = [
     ['https://de.wikipedia.org/wiki/Ulrich_Rückriem'],
     'https://i.imgur.com/alsKGLp.jpg',
     true,
-    true
+    true,
+    'Skulptur'
   ),
   new Artwork(
     2,
@@ -29,7 +30,8 @@ export const ARTWORK_LIST = [
     ['https://de.wikipedia.org/wiki/Andrea_Zaumseil'],
     'https://i.imgur.com/AISN3Hn.jpg',
     true,
-    false
+    false,
+    'Skulptur'
   ),
   new Artwork(
     3,
@@ -44,7 +46,8 @@ export const ARTWORK_LIST = [
     ['https://de.wikipedia.org/wiki/Thaddäus_Hüppi'],
     'https://i.imgur.com/9ObObUq.jpg',
     true,
-    true
+    true,
+    'Skulptur'
   ),
   new Artwork(
     4,
@@ -59,7 +62,8 @@ export const ARTWORK_LIST = [
     [],
     'https://i.imgur.com/V56W6Uy.jpg',
     true,
-    false
+    false,
+    'Skulptur'
   ),
   new Artwork(
     5,
@@ -77,7 +81,8 @@ export const ARTWORK_LIST = [
     ],
     'https://i.imgur.com/BVrL0Sy.jpg',
     false,
-    false
+    false,
+    'Skulptur'
   ),
   new Artwork(
     6,
@@ -92,6 +97,53 @@ export const ARTWORK_LIST = [
     ['https://de.wikipedia.org/wiki/Berto_Lardera'],
     'https://i.imgur.com/0btJySE.jpg',
     true,
-    false
+    false,
+    'Skulptur'
   ),
+  new Artwork(
+    7,
+    'Sare und Yukie Nagai',
+    ['Sare und Yukie Nagai'],
+    'Ca. 2019'
+    'Farbe auf Hauswand',
+    '',
+    'Vauban',
+    47.976716,
+    7.829016,
+    ['http://www.nexusexperiments.uni-freiburg.de/stawafo/', 'http://www.nexusexperiments.uni-freiburg.de/stawafo/wand-5-sare-mit-yukie-nagai/'],
+    'https://doc-10-24-mymaps.googleusercontent.com/untrusted/hostedimage/fb15majgk5sqhql6sm9e4m5sio/be3nmjvuhvc70etqbcct1l3pc4/1624104612000/yyulMWweX2Vo7Xod1uoDcN5cpOgMLnOa/04842333967876749562/5AOlzF5aQDMVaMhMxibu_0vUO5q-aV3tDQYO66MlSlfahvP8B0y6OViV2TFgr2Lc-SiBVjoXsjSdBNFrbPNitvUVgyZc8rCbzTt_bfIeLjLo9xmVER2lolq_n8A7YnNWBOUqZdpjI481JP0XbDp1gML0idvYBu_iCpVjB6PXUcJuTezA2VKoVYLXmgJpXPm33IdUB1P0?session=0&fife=s16383',
+    true,
+    false,
+    'Graffiti'
+  ),
+  new Artwork(
+    8,
+    'KUNSTDRUCK AUF NETZPLANE',
+    ['Marc C. Woehr und Joschka Bödecker'],
+    '2019',
+    'Druck auf Netzplane',
+    '',
+    'Universität',
+    47.994283,
+    7.844947,
+    ['http://www.nexusexperiments.uni-freiburg.de/stawafo/', 'http://www.nexusexperiments.uni-freiburg.de/stawafo/wand-3-marc-c-woehr-mit-joschka-boedecker/'],
+    'https://doc-08-24-mymaps.googleusercontent.com/untrusted/hostedimage/fb15majgk5sqhql6sm9e4m5sio/ev409o85kn8jp0d18l2kqv4nlk/1624105135250/yyulMWweX2Vo7Xod1uoDcN5cpOgMLnOa/04842333967876749562/5AOlzF5aKdM3P2JsuyCk54T_wx7RVF3bmOvvL8EUyywLCme455Ysi9ShyIexWxOLhs5__X2LNYGj3BpvWcLg2u0HW-I5Uw0M1LEmk2CgjPowdByWJKsJa3tnKYxjWNhIyRTGUGQ1UIPxhV1beGbARfCMWQdLaiLl8vZ_0ep53yaamsQKEEgxfZTRA0UkojhcYbSkoqwn6?session=0&fife=s16383',
+    true,
+    'Modern'
+  ),
+  new Artwork(
+    9,
+    'Die Liegende',
+    ['Henry Moore'],
+    '',
+    'Reclining Figure',
+    '',
+    'Platz der alten Synagoge',
+    47.994932316280696, 
+    7.846101023833724,
+    ['https://de.wikipedia.org/wiki/Henry_Moore'],
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Reclining_Figure_Henry_Moore_%28Freiburg_im_Breisgau%29_jm53329_ji.jpg/750px-Reclining_Figure_Henry_Moore_%28Freiburg_im_Breisgau%29_jm53329_ji.jpg',
+    true,
+    true,
+    'Skulptur')
 ];
