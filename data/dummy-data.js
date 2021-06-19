@@ -13,6 +13,7 @@ export const ARTWORK_LIST = [
     7.85218,
     ['https://de.wikipedia.org/wiki/Ulrich_Rückriem'],
     'https://i.imgur.com/alsKGLp.jpg',
+    true,
     true
   ),
   new Artwork(
@@ -27,7 +28,8 @@ export const ARTWORK_LIST = [
     7.84147,
     ['https://de.wikipedia.org/wiki/Andrea_Zaumseil'],
     'https://i.imgur.com/AISN3Hn.jpg',
-    true
+    true,
+    false
   ),
   new Artwork(
     3,
@@ -41,6 +43,7 @@ export const ARTWORK_LIST = [
     7.85273,
     ['https://de.wikipedia.org/wiki/Thaddäus_Hüppi'],
     'https://i.imgur.com/9ObObUq.jpg',
+    true,
     true
   ),
   new Artwork(
@@ -55,7 +58,8 @@ export const ARTWORK_LIST = [
     7.85182,
     [],
     'https://i.imgur.com/V56W6Uy.jpg',
-    true
+    true,
+    false
   ),
   new Artwork(
     5,
@@ -72,6 +76,7 @@ export const ARTWORK_LIST = [
       'https://fudder.de/kunst-die-rumsteht-1-claes-oldenburgs-wasserschlauch--118361228.html',
     ],
     'https://i.imgur.com/BVrL0Sy.jpg',
+    false,
     false
   ),
   new Artwork(
@@ -86,6 +91,7 @@ export const ARTWORK_LIST = [
     7.84452,
     ['https://de.wikipedia.org/wiki/Berto_Lardera'],
     'https://i.imgur.com/0btJySE.jpg',
-    true
+    true,
+    false
   ),
 ];
