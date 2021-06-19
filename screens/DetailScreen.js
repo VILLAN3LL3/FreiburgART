@@ -18,18 +18,18 @@ const DetailScreen = (props) => {
     <View style={styles.container}>
       <ScrollView>
         {showThreeButton && (
-            <Button
-              color={Colors.primaryDisabled}
-              title='In 3D ansehen'
-              onPress={() => {
-                props.navigation.navigate({
-                  routeName: 'ThreeDimModel',
-                  params: {
-                    artworkId: currentArtwork.id,
-                  },
-                });
-              }}
-            />
+          <Button
+            color={Colors.primaryDisabled}
+            title='In 3D ansehen'
+            onPress={() => {
+              props.navigation.navigate({
+                routeName: 'ThreeDimModel',
+                params: {
+                  artworkId: currentArtwork.id,
+                },
+              });
+            }}
+          />
         )}
         <Image
           style={styles.image}
@@ -39,8 +39,15 @@ const DetailScreen = (props) => {
         {currentArtwork.visitedOn && (
           <Text style={{ paddingLeft: 5 }}>Besucht am {GetGermanDateString(currentArtwork.visitedOn)}</Text>
         )}
+        {!currentArtwork.isCurrentlyAccessible && (
+          <Text style={{ paddingLeft: 5, color: 'red' }}>Zur Zeit nicht zugänglich</Text>
+        )}
         <View
-          style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: currentArtwork.visitedOn ? -55 : -35 }}
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'flex-end',
+            marginTop: currentArtwork.visitedOn || !currentArtwork.isCurrentlyAccessible ? -55 : -35,
+          }}
         >
           <SocialIcon type='facebook' />
           <SocialIcon type='twitter' />
@@ -124,6 +131,11 @@ const DetailScreen = (props) => {
           icon={{ name: 'favorite-border', color: '#fff' }}
           title='Als Favorit markieren'
           onPress={() => console.log('Set artwork as favorite')}
+        />
+        <SpeedDial.Action
+          icon={{ name: 'euro', color: '#fff' }}
+          title='Spenden'
+          onPress={() => console.log('Donate')}
         />
       </SpeedDial>
     </View>
