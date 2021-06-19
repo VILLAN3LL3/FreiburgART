@@ -148,10 +148,10 @@ export const ARTWORK_LIST = [
   ),
   new Artwork(
     9,
-    'Die Liegende',
+    'Reclining Figure - Liegende',
     ['Henry Moore'],
+    '196',
     'Unbekannt',
-    'Reclining Figure',
     'Unbekannt',
     'Platz der alten Synagoge',
     47.994932316280696,
