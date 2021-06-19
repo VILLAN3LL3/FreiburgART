@@ -1,14 +1,19 @@
 import React from 'react';
 import { StyleSheet, ScrollView, Image, Text, View, Alert } from 'react-native';
 import { ARTWORK_LIST } from '../data/dummy-data';
-import { Linking } from 'react-native';
 import { SocialIcon } from 'react-native-elements';
 import Colors from '../constants/Colors';
+import Artwork from "../models/artwork";
+import { Linking } from "react-native";
+
+import Colors from "../constants/Colors";
+import { Button } from "react-native-elements/dist/buttons/Button";
 
 const DetailScreen = (props) => {
   const artworks = ARTWORK_LIST;
   const artworkId = props.navigation.getParam('artworkId');
   const currentArtwork = artworks.find((artwork) => artwork.id === artworkId);
+
   return (
     <ScrollView style={styles.container}>
       {/* <View style={{ ...styles.container, ...props.style }}> */}
@@ -28,8 +33,20 @@ const DetailScreen = (props) => {
           </Text>
         ))}
       </View>
+      {currentArtwork.sketchfabUri && (
+        <Button
+          title="In 3D ansehen"
+          onPress={() => {
+            props.navigation.navigate({
+              routeName: "ThreeDimModel",
+              params: {
+                artworkId: currentArtwork.id,
+              },
+            });
+          }}
+        />
+      )}
 
-      {/* </View> */}
     </ScrollView>
   );
 };

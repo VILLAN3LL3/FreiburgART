@@ -15,7 +15,8 @@ export const ARTWORK_LIST = [
     'https://i.imgur.com/alsKGLp.jpg',
     true,
     new Date(2021, 6, 11),
-    'Skulptur'
+    'Skulptur',
+    ''
   ),
   new Artwork(
     2,
@@ -31,7 +32,8 @@ export const ARTWORK_LIST = [
     'https://i.imgur.com/AISN3Hn.jpg',
     true,
     null,
-    'Skulptur'
+    'Skulptur',
+    ''
   ),
   new Artwork(
     3,
@@ -63,7 +65,8 @@ export const ARTWORK_LIST = [
     'https://i.imgur.com/V56W6Uy.jpg',
     true,
     null,
-    'Skulptur'
+    'Skulptur',
+    ''
   ),
   new Artwork(
     5,
@@ -82,7 +85,8 @@ export const ARTWORK_LIST = [
     'https://i.imgur.com/BVrL0Sy.jpg',
     false,
     null,
-    'Skulptur'
+    'Skulptur',
+    ''
   ),
   new Artwork(
     6,
@@ -98,7 +102,8 @@ export const ARTWORK_LIST = [
     'https://i.imgur.com/0btJySE.jpg',
     true,
     new Date(2021, 4, 4),
-    'Skulptur'
+    'Skulptur',
+    ''
   ),
   new Artwork(
     7,
@@ -117,7 +122,8 @@ export const ARTWORK_LIST = [
     'https://doc-10-24-mymaps.googleusercontent.com/untrusted/hostedimage/fb15majgk5sqhql6sm9e4m5sio/be3nmjvuhvc70etqbcct1l3pc4/1624104612000/yyulMWweX2Vo7Xod1uoDcN5cpOgMLnOa/04842333967876749562/5AOlzF5aQDMVaMhMxibu_0vUO5q-aV3tDQYO66MlSlfahvP8B0y6OViV2TFgr2Lc-SiBVjoXsjSdBNFrbPNitvUVgyZc8rCbzTt_bfIeLjLo9xmVER2lolq_n8A7YnNWBOUqZdpjI481JP0XbDp1gML0idvYBu_iCpVjB6PXUcJuTezA2VKoVYLXmgJpXPm33IdUB1P0?session=0&fife=s16383',
     true,
     new Date(2021, 1, 24),
-    'Graffiti'
+    'Graffiti',
+    ''
   ),
   new Artwork(
     8,
@@ -136,7 +142,8 @@ export const ARTWORK_LIST = [
     'https://doc-08-24-mymaps.googleusercontent.com/untrusted/hostedimage/fb15majgk5sqhql6sm9e4m5sio/ev409o85kn8jp0d18l2kqv4nlk/1624105135250/yyulMWweX2Vo7Xod1uoDcN5cpOgMLnOa/04842333967876749562/5AOlzF5aKdM3P2JsuyCk54T_wx7RVF3bmOvvL8EUyywLCme455Ysi9ShyIexWxOLhs5__X2LNYGj3BpvWcLg2u0HW-I5Uw0M1LEmk2CgjPowdByWJKsJa3tnKYxjWNhIyRTGUGQ1UIPxhV1beGbARfCMWQdLaiLl8vZ_0ep53yaamsQKEEgxfZTRA0UkojhcYbSkoqwn6?session=0&fife=s16383',
     true,
     new Date(2021, 3, 25),
-    'Gemälde'
+    'Gemälde',
+    ''
   ),
   new Artwork(
     9,
@@ -152,6 +159,7 @@ export const ARTWORK_LIST = [
     'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Reclining_Figure_Henry_Moore_%28Freiburg_im_Breisgau%29_jm53329_ji.jpg/750px-Reclining_Figure_Henry_Moore_%28Freiburg_im_Breisgau%29_jm53329_ji.jpg',
     true,
     new Date(2021, 2, 12),
-    'Skulptur'
-  ),
+    'Skulptur',
+    'https://sketchfab.com/models/1c54dfde8bba4cce99e53635c71244b5/embed'
+    )
 ];

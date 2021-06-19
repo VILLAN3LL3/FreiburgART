@@ -8,6 +8,7 @@ import DetailScreen from '../screens/DetailScreen';
 import ErfolgeScreen from '../screens/ErfolgeScreen';
 import Colors from "../constants/Colors";
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+import ThreeDimModelScreen from "../screens/ThreeDimModelScreen";
 
 const defaultStackNavigationOptions = {
   headerStyle: {
@@ -21,7 +22,7 @@ const defaultStackNavigationOptions = {
 const MapScreenNavigator = createStackNavigator(
   {
     Karte: MapScreen,
-    Details: DetailScreen
+    Details: DetailScreenNavigator,
   },
   {
     defaultNavigationOptions: defaultStackNavigationOptions,
@@ -31,7 +32,7 @@ const MapScreenNavigator = createStackNavigator(
 const ListScreenNavigator = createStackNavigator(
   {
     Liste: ListScreen,
-    Details: DetailScreen
+    Details: DetailScreenNavigator,
   },
   {
     defaultNavigationOptions: defaultStackNavigationOptions,
@@ -41,6 +42,16 @@ const ListScreenNavigator = createStackNavigator(
 const ErfolgeScreenNavigator = createStackNavigator(
   {
     Erfolge: ErfolgeScreen,
+  },
+  {
+    defaultNavigationOptions: defaultStackNavigationOptions,
+  }
+);
+
+const DetailScreenNavigator = createStackNavigator(
+  {
+    Details: DetailScreen,
+    ThreeDimModel: ThreeDimModelScreen, 
   },
   {
     defaultNavigationOptions: defaultStackNavigationOptions,
