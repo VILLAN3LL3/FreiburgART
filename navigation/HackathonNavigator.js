@@ -58,7 +58,7 @@ const myTabScreenConfig = {
     screen: ListScreenNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
-        return <Ionicons name='ios-star' size={25} color={tabInfo.tintColor}></Ionicons>;
+        return <Ionicons name='list-circle-outline' size={25} color={tabInfo.tintColor}></Ionicons>;
       },
       tabBarColor: Colors.primary,
     },
