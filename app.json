@@ -4,7 +4,7 @@
     "slug": "hack-fr-2021",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/gsculpture-96.png",
+    "icon": "./assets/sculpture-96.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",

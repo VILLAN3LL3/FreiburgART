@@ -4,7 +4,8 @@ import { createAppContainer } from "react-navigation";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import MapScreen from "../screens/MapScreen";
 import ListScreen from "../screens/ListScreen";
-import DetailScreen from "../screens/DetailScreen";
+import DetailScreen from '../screens/DetailScreen';
+import ErfolgeScreen from '../screens/ErfolgeScreen';
 import Colors from "../constants/Colors";
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
@@ -35,9 +36,9 @@ const ListScreenNavigator = createStackNavigator(
   }
 );
 
-const DetailScreenNavigator = createStackNavigator(
+const ErfolgeScreenNavigator = createStackNavigator(
   {
-    Details: DetailScreen,
+    Erfolge: ErfolgeScreen,
   },
   {
     defaultNavigationOptions: defaultStackNavigationOptions,
@@ -45,29 +46,29 @@ const DetailScreenNavigator = createStackNavigator(
 );
 
 const myTabScreenConfig = {
-  Map: {
+  Karte: {
     screen: MapScreenNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
-        return <MaterialCommunityIcons name='map-search' size={25} color={tabInfo.tintColor}></MaterialCommunityIcons>;
+        return <Ionicons name='map' size={25} color={tabInfo.tintColor}></Ionicons>;
       },
       tabBarColor: Colors.primary,
     },
   },
-  List: {
+  Liste: {
     screen: ListScreenNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
-        return <Ionicons name='list-circle-outline' size={25} color={tabInfo.tintColor}></Ionicons>;
+        return <Ionicons name='list' size={25} color={tabInfo.tintColor}></Ionicons>;
       },
       tabBarColor: Colors.primary,
     },
   },
-  Detail: {
-    screen: DetailScreenNavigator,
+  Erfolge: {
+    screen: ErfolgeScreenNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
-        return <Ionicons name='ios-camera' size={25} color={tabInfo.tintColor}></Ionicons>;
+        return <Ionicons name='ribbon' size={25} color={tabInfo.tintColor}></Ionicons>;
       },
       tabBarColor: Colors.primary,
     },

@@ -6,6 +6,7 @@ import Geolocation from 'react-native-geolocation-service';
 import MarkerCallout from '../components/MarkerCallout';
 import { SearchBar } from 'react-native-elements';
 import LogoTitle from '../components/LogoTitle';
+import GetIconSource from '../services/artwork-service';
 
 // https://github.com/react-native-maps/react-native-maps
 // https://dev-yakuza.posstree.com/en/react-native/react-native-maps/
@@ -55,39 +56,6 @@ const MapScreen = (props) => {
     );
   };
 
-  const findIcon = (artwork) => {
-    if (artwork.isCurrentlyAccessible) {
-      if (artwork.isVisited) {
-        switch (artwork.type) {
-          case 'Graffiti':
-            return require('../assets/graffiti-visited-96.png');
-          case 'Gemälde':
-            return require('../assets/easel-visited-96.png');
-          default:
-            return require('../assets/sculpture-visited-96.png');
-        }
-      } else {
-        switch (artwork.type) {
-          case 'Graffiti':
-            return require('../assets/graffiti-96.png');
-          case 'Gemälde':
-            return require('../assets/easel-96.png');
-          default:
-            return require('../assets/sculpture-96.png');
-        }
-      }
-    } else {
-      switch (artwork.type) {
-        case 'Graffiti':
-          return require('../assets/graffiti-disabled-96.png');
-        case 'Gemälde':
-          return require('../assets/easel-disabled-96.png');
-        default:
-          return require('../assets/sculpture-disabled-96.png');
-      }
-    }
-  };
-
   return (
     <View style={{ ...styles.container, ...props.style }}>
       <SearchBar placeholder='Suchen...' onChangeText={updateSearch} lightTheme value={searchValue} />
@@ -106,7 +74,7 @@ const MapScreen = (props) => {
             key={artwork.id}
             identifier={artwork.id.toString()}
             coordinate={{ latitude: artwork.latitude, longitude: artwork.longitude }}
-            image={findIcon(artwork)}
+            image={GetIconSource(artwork)}
           >
             <Callout
               tooltip

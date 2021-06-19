@@ -1,5 +1,5 @@
 class Artwork {
-  constructor(id, title, artists, year, material, dimensions, location, latitude, longitude, infoUrls, imageUrl, isCurrentlyAccessible, isVisited, type) {
+  constructor(id, title, artists, year, material, dimensions, location, latitude, longitude, infoUrls, imageUrl, isCurrentlyAccessible, visitedOn, type) {
     this.id = id;
     this.title = title;
     this.artists = artists;
@@ -12,7 +12,7 @@ class Artwork {
     this.infoUrls = infoUrls;
     this.imageUrl = imageUrl;
     this.isCurrentlyAccessible = isCurrentlyAccessible;
-    this.isVisited = isVisited;
+    this.visitedOn = visitedOn;
     this.type = type;
   }
 }
