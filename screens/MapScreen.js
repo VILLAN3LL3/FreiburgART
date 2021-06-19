@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Container } from 'react-native';
+import { StyleSheet, Text, View, Alert, Dimensions, Image } from 'react-native';
 import { ARTWORK_LIST } from '../data/dummy-data';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, Callout, CalloutSubview } from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
+import MarkerCallout from '../components/MarkerCallout';
 
 // https://github.com/react-native-maps/react-native-maps
 // https://dev-yakuza.posstree.com/en/react-native/react-native-maps/
@@ -10,18 +11,19 @@ const MapScreen = (props) => {
   const artworks = ARTWORK_LIST;
   const firstItem = artworks[0];
 
+  const { width, height } = Dimensions.get('window');
+  const ASPECT_RATIO = width / height;
+  const LATITUDE_DELTA = 0.0322;
+  const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
+
   const [region, setRegion] = useState({
     region: {
       latitude: 47.9959,
       longitude: 7.85222,
-      latitudeDelta: 0.0322,
-      longitudeDelta: 0.0121,
+      latitudeDelta: LATITUDE_DELTA,
+      longitudeDelta: LONGITUDE_DELTA,
     },
   });
-
-  // onRegionChange = (region) => {
-  //   setRegion({ region });
-  // };
 
   // ToDo: Herausfinden, was man tun muss, damit Geolocation im Emulator funktioniert
   // useEffect(() => {
@@ -42,24 +44,46 @@ const MapScreen = (props) => {
 
   return (
     <View style={{ ...styles.container, ...props.style }}>
-      {region && (
-        <MapView region={region.region} style={{ flex: 1 }}>
+      <MapView region={region.region} style={{ flex: 1 }}>
+        <Marker
+          key={0}
+          coordinate={{ latitude: region.region.latitude, longitude: region.region.longitude }}
+          image={require('../assets/walking-96.png')}
+        >
+          <Callout>
+            <Text>Ich :-)</Text>
+          </Callout>
+        </Marker>
+        {artworks.map((artwork) => (
           <Marker
-            key={0}
-            coordinate={{ latitude: region.region.latitude, longitude: region.region.longitude }}
-            image={require('../assets/walking-96.png')}
-          />
-          {artworks.map((artwork) => (
-            <Marker
-              key={artwork.id}
-              coordinate={{ latitude: artwork.latitude, longitude: artwork.longitude }}
-              title={artwork.title}
-              description={`${artwork.artists.join(', ')} (${artwork.year})`}
-              image={require('../assets/easel-96.png')}
-            />
-          ))}
-        </MapView>
-      )}
+            key={artwork.id}
+            identifier={artwork.id.toString()}
+            coordinate={{ latitude: artwork.latitude, longitude: artwork.longitude }}
+            image={require('../assets/easel-96.png')}
+          >
+            <Callout
+              tooltip
+              onPress={(e) => {
+                if (
+                  e.nativeEvent.action === 'marker-inside-overlay-press' ||
+                  e.nativeEvent.action === 'callout-inside-press'
+                ) {
+                  return;
+                }
+                props.navigation.navigate({
+                  routeName: 'Detail',
+                  params: {
+                    id: artwork.id
+                  }
+                })
+ 
+              }}
+            >
+              <MarkerCallout artwork={artwork} />
+            </Callout>
+          </Marker>
+        ))}
+      </MapView>
     </View>
   );
 };
