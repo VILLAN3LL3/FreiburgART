@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet} from 'react-native';
+import { Text, View, StyleSheet, Image, ImageBackground } from 'react-native';
 import Colors from '../constants/Colors';
 
 const MarkerCallout = (props) => {
@@ -8,6 +8,9 @@ const MarkerCallout = (props) => {
     <View style={[styles.container, props.style]}>
       <View style={styles.bubble}>
         <View style={styles.bubbleContent}>
+          <Text style={styles.imageWrapper}>
+            <Image source={{ uri: artwork.imageUrl }} style={styles.image} />
+          </Text>
           <Text
             style={{
               ...styles.text,
@@ -16,9 +19,11 @@ const MarkerCallout = (props) => {
           >
             {artwork.title}
           </Text>
-          <Text
-            style={{ ...styles.text, ...{ fontSize: 10, color: artwork.isCurrentlyAccessible ? 'black' : 'red' } }}
-          >{artwork.isCurrentlyAccessible ? `${artwork.artists.join(', ')} (${artwork.year})` : 'Dieses Kunstwerk ist zur Zeit nicht zugänglich'}</Text>
+          <Text style={{ ...styles.text, ...{ fontSize: 10, color: artwork.isCurrentlyAccessible ? 'black' : 'red' } }}>
+            {artwork.isCurrentlyAccessible
+              ? `${artwork.artists.join(', ')} (${artwork.year})`
+              : 'Dieses Kunstwerk ist zur Zeit nicht zugänglich'}
+          </Text>
         </View>
       </View>
       <View style={styles.arrowBorder} />
@@ -45,10 +50,10 @@ const styles = StyleSheet.create({
   },
   bubbleContent: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   text: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   arrow: {
     backgroundColor: 'transparent',
@@ -66,6 +71,12 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: -0.5,
   },
+  imageWrapper: {
+    backgroundColor: 'red',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  image: { height: 100, width: 100, resizeMode: 'cover' },
 });
 
 export default MarkerCallout;
