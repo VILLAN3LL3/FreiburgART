@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, StyleSheet, Image} from 'react-native';
-import GetIconSource from '../services/artwork-service';
+import { GetIconSource, GetGermanDateString } from '../services/artwork-service';
 import Colors from '../constants/Colors';
 
 const StatisticsListItem = ({artwork}) => {
@@ -14,7 +14,7 @@ const StatisticsListItem = ({artwork}) => {
           <Text style={{ fontWeight: 'bold' }}>{artwork.title.toUpperCase()}</Text>
           <View style={{ flexDirection: 'row' }}>
             <Image source={GetIconSource(artwork)} style={{ width: 20, height: 20, marginRight: 5 }} />
-            <Text style={{ color: 'gray' }}>Besucht am {`${artwork.visitedOn.getDate()}.${artwork.visitedOn.getMonth() + 1}.${artwork.visitedOn.getYear() + 1900}`}</Text>
+            <Text style={{ color: 'gray' }}>Besucht am {GetGermanDateString(artwork.visitedOn)}</Text>
           </View>
         </View>
       </View>

@@ -1,47 +1,43 @@
-import React, {useState} from 'react';
-import { StyleSheet, Text, View, Image, FlatList, Button, TouchableOpacity, ImageBackground } from 'react-native';
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  FlatList,
+  Button,
+  TouchableOpacity,
+  ImageBackground,
+} from 'react-native';
 import { ARTWORK_LIST } from '../data/dummy-data';
 import Colors from '../constants/Colors';
 import { SearchBar } from 'react-native-elements';
 
 const styles = StyleSheet.create({
-  container: {},
-  row: {
-    display: 'flex',
-    flexDirection: 'row',
-    backgroundColor: 'green',
-    alignContent: 'center',
-  },
-  rightContent: {
-    display: 'flex',
-  },
-  productItemContainer: {
+  container: {
     flex: 1,
-    height: 300,
-    backgroundColor: '#ccc',
+  },
+  artworkItemContainer: {
+    flex: 1,
+    height: 400,
+    backgroundColor: Colors.secondary,
     margin: 10,
     borderRadius: 15,
     overflow: 'hidden',
   },
-  productImageAndTitleContainer: {
-    height: '60%',
+  artImageAndTitleContainer: {
+    height: '80%',
   },
-  productDetailContainer: {
+  artistsContainer: {
     paddingHorizontal: 30,
     justifyContent: 'space-around',
     alignItems: 'center',
-    height: '20%',
+    height: '10%',
   },
   actionButtonsContainer: {
-    height: '20%',
-    justifyContent: 'space-between',
+    height: '10%',
     alignItems: 'center',
     paddingHorizontal: 30,
-    flexDirection: 'row',
-  },
-  description: {},
-  productRow: {
-    flexDirection: 'row',
   },
   backgroundImage: {
     width: '100%',
@@ -64,19 +60,21 @@ const ListScreen = (props) => {
   const [searchValue, setSearchValue] = useState('');
   const [filteredArtworks, setFilteredArtworks] = useState(ARTWORK_LIST);
 
-const updateSearch = (search) => {
-  setSearchValue(search);
-  setFilteredArtworks(
-    artworks.filter((a) =>
-      `${a.title}|${a.artists.join('|')}|${a.material}|${a.year}|${a.dimensions}|${a.location}|${a.type}`
-        .toLowerCase()
-        .includes(search.toLowerCase())
-    )
-  );
-};
+  const updateSearch = (search) => {
+    setSearchValue(search);
+    setFilteredArtworks(
+      artworks.filter((a) =>
+        `${a.title}|${a.artists.join('|')}|${a.material}|${a.year}|${
+          a.dimensions
+        }|${a.location}|${a.type}`
+          .toLowerCase()
+          .includes(search.toLowerCase())
+      )
+    );
+  };
 
   const ArtworkItemList = ({ item }) => (
-    <View style={{ ...styles.productItemContainer, ...props.style }}>
+    <View style={{ ...styles.artworkItemContainer, ...props.style }}>
       <TouchableOpacity
         onPress={(e) => {
           if (
@@ -94,14 +92,17 @@ const updateSearch = (search) => {
         }}
       >
         <View>
-          <View style={styles.productImageAndTitleContainer}>
-            <ImageBackground source={{ uri: item.imageUrl }} style={styles.backgroundImage}>
+          <View style={styles.artImageAndTitleContainer}>
+            <ImageBackground
+              source={{ uri: item.imageUrl }}
+              style={styles.backgroundImage}
+            >
               <View style={styles.titleContainer}>
                 <Text style={styles.title}>{item.title}</Text>
               </View>
             </ImageBackground>
           </View>
-          <View style={styles.productDetailContainer}>
+          <View style={styles.artistsContainer}>
             <Text>{item.artists}</Text>
           </View>
           <View style={styles.actionButtonsContainer}>
@@ -135,7 +136,12 @@ const updateSearch = (search) => {
 
   return (
     <View style={{ ...styles.container, ...props.style }}>
-      <SearchBar placeholder='Suchen...' onChangeText={updateSearch} lightTheme value={searchValue} />
+      <SearchBar
+        placeholder='Suchen...'
+        onChangeText={updateSearch}
+        lightTheme
+        value={searchValue}
+      />
       <FlatList
         keyExtractor={(item) => item.id.toString()}
         data={filteredArtworks}

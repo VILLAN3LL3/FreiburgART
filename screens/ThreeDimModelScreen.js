@@ -22,7 +22,7 @@ ThreeDimModelScreen.navigationOptions = (props) => {
   const currentArtwork = artworks.find((artwork) => artwork.id === artworkId);
 
   return {
-    headerTitle: currentArtwork.title,
+    headerTitle: `${currentArtwork.title} (3D)`,
   };
 };
 

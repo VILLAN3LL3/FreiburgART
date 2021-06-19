@@ -1,4 +1,4 @@
-const GetIconSource = (artwork) => {
+export const GetIconSource = (artwork) => {
   if (artwork.isCurrentlyAccessible) {
     if (!!artwork.visitedOn) {
       switch (artwork.type) {
@@ -31,4 +31,6 @@ const GetIconSource = (artwork) => {
   }
 };
 
-export default GetIconSource;
+export const GetGermanDateString = (date) => {
+  return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+}

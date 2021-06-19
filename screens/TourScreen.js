@@ -143,7 +143,7 @@ const TourScreen = (props) => {
                 console.log('btn not implemented');
               }}
       >
-          <Text style={styles.textTourBtn}>Zum Tourenplaner</Text>
+      <Text style={styles.textTourBtn}>Zum Tourenplaner</Text>
       </TouchableOpacity></View>
       <FlatList
         keyExtractor={(item) => item.id.toString()}
@@ -153,6 +153,6 @@ const TourScreen = (props) => {
       ></FlatList>
     </View>
   );
-};
+}
 
 export default TourScreen;
