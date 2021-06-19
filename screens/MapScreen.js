@@ -13,7 +13,7 @@ const MapScreen = (props) => {
   const artworks = ARTWORK_LIST;
   const { width, height } = Dimensions.get('window');
   const ASPECT_RATIO = width / height;
-  const LATITUDE_DELTA = 0.0322;
+  const LATITUDE_DELTA = 0.025;
   const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
   const [region, setRegion] = useState({
@@ -48,11 +48,44 @@ const MapScreen = (props) => {
     setSearchValue(search);
     setFilteredArtworks(
       artworks.filter((a) =>
-        `${a.title}|${a.artists.join('|')}|${a.material}|${a.year}|${a.dimensions}|${a.location}`
+        `${a.title}|${a.artists.join('|')}|${a.material}|${a.year}|${a.dimensions}|${a.location}|${a.type}`
           .toLowerCase()
           .includes(search.toLowerCase())
       )
     );
+  };
+
+  const findIcon = (artwork) => {
+    if (artwork.isCurrentlyAccessible) {
+      if (artwork.isVisited) {
+        switch (artwork.type) {
+          case 'Graffiti':
+            return require('../assets/graffiti-visited-96.png');
+          case 'Gemälde':
+            return require('../assets/easel-visited-96.png');
+          default:
+            return require('../assets/sculpture-visited-96.png');
+        }
+      } else {
+        switch (artwork.type) {
+          case 'Graffiti':
+            return require('../assets/graffiti-96.png');
+          case 'Gemälde':
+            return require('../assets/easel-96.png');
+          default:
+            return require('../assets/sculpture-96.png');
+        }
+      }
+    } else {
+      switch (artwork.type) {
+        case 'Graffiti':
+          return require('../assets/graffiti-disabled-96.png');
+        case 'Gemälde':
+          return require('../assets/easel-disabled-96.png');
+        default:
+          return require('../assets/sculpture-disabled-96.png');
+      }
+    }
   };
 
   return (
@@ -73,11 +106,7 @@ const MapScreen = (props) => {
             key={artwork.id}
             identifier={artwork.id.toString()}
             coordinate={{ latitude: artwork.latitude, longitude: artwork.longitude }}
-            image={
-              artwork.isCurrentlyAccessible
-                ? (artwork.isVisited ? require('../assets/sculpture-visited-96.png'): require('../assets/sculpture-96.png'))
-                : require('../assets/sculpture-disabled-96.png')
-            }
+            image={findIcon(artwork)}
           >
             <Callout
               tooltip
@@ -112,7 +141,7 @@ const styles = StyleSheet.create({
 });
 
 MapScreen.navigationOptions = () => {
-  return { 
+  return {
     headerTitle: () => <LogoTitle />,
   };
 };

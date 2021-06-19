@@ -8,16 +8,13 @@ const MarkerCallout = (props) => {
     <View style={[styles.container, props.style]}>
       <View style={styles.bubble}>
         <View style={styles.bubbleContent}>
-          <Text style={styles.imageWrapper}>
-            <Image source={{ uri: artwork.imageUrl }} style={styles.image} />
-          </Text>
           <Text
             style={{
               ...styles.text,
               ...{ fontWeight: 'bold', fontSize: 12, color: artwork.isCurrentlyAccessible ? 'black' : 'gray' },
             }}
           >
-            {artwork.title}
+            {artwork.title.toUpperCase()}
           </Text>
           <Text style={{ ...styles.text, ...{ fontSize: 10, color: artwork.isCurrentlyAccessible ? 'black' : 'red' } }}>
             {artwork.isCurrentlyAccessible
@@ -71,12 +68,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: -0.5,
   },
-  imageWrapper: {
-    backgroundColor: 'red',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  image: { height: 100, width: 100, resizeMode: 'cover' },
 });
 
 export default MarkerCallout;

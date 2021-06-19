@@ -104,7 +104,7 @@ export const ARTWORK_LIST = [
     7,
     'Sare und Yukie Nagai',
     ['Sare und Yukie Nagai'],
-    'Ca. 2019'
+    'Ca. 2019',
     'Farbe auf Hauswand',
     '',
     'Vauban',
@@ -129,7 +129,8 @@ export const ARTWORK_LIST = [
     ['http://www.nexusexperiments.uni-freiburg.de/stawafo/', 'http://www.nexusexperiments.uni-freiburg.de/stawafo/wand-3-marc-c-woehr-mit-joschka-boedecker/'],
     'https://doc-08-24-mymaps.googleusercontent.com/untrusted/hostedimage/fb15majgk5sqhql6sm9e4m5sio/ev409o85kn8jp0d18l2kqv4nlk/1624105135250/yyulMWweX2Vo7Xod1uoDcN5cpOgMLnOa/04842333967876749562/5AOlzF5aKdM3P2JsuyCk54T_wx7RVF3bmOvvL8EUyywLCme455Ysi9ShyIexWxOLhs5__X2LNYGj3BpvWcLg2u0HW-I5Uw0M1LEmk2CgjPowdByWJKsJa3tnKYxjWNhIyRTGUGQ1UIPxhV1beGbARfCMWQdLaiLl8vZ_0ep53yaamsQKEEgxfZTRA0UkojhcYbSkoqwn6?session=0&fife=s16383',
     true,
-    'Modern'
+    true,
+    'Gemälde'
   ),
   new Artwork(
     9,
