@@ -88,10 +88,11 @@ const MapScreen = (props) => {
                 ) {
                   return;
                 }
+                console.log(artwork.id);
                 props.navigation.navigate({
-                  routeName: 'Detail',
+                  routeName: 'Details',
                   params: {
-                    id: artwork.id,
+                    artworkId: artwork.id,
                   },
                 });
               }}
