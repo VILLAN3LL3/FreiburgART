@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
-import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import MapScreen from "../screens/MapScreen";
 import ListScreen from "../screens/ListScreen";
 import DetailScreen from '../screens/DetailScreen';
@@ -19,20 +19,11 @@ const defaultStackNavigationOptions = {
   headerTintColor: "white",
 };
 
-const DetailScreenNavigator = createStackNavigator(
-  {
-    Details: DetailScreen,
-    ThreeDimModel: ThreeDimModelScreen, 
-  },
-  {
-    defaultNavigationOptions: defaultStackNavigationOptions,
-  }
-);
-
 const MapScreenNavigator = createStackNavigator(
   {
     Karte: MapScreen,
-    Details: DetailScreenNavigator,
+    Details: DetailScreen,
+    ThreeDimModel: ThreeDimModelScreen,
   },
   {
     defaultNavigationOptions: defaultStackNavigationOptions,
@@ -42,7 +33,8 @@ const MapScreenNavigator = createStackNavigator(
 const ListScreenNavigator = createStackNavigator(
   {
     Liste: ListScreen,
-    Details: DetailScreenNavigator,
+    Details: DetailScreen,
+    ThreeDimModel: ThreeDimModelScreen,
   },
   {
     defaultNavigationOptions: defaultStackNavigationOptions,
