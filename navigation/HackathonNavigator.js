@@ -6,6 +6,7 @@ import MapScreen from "../screens/MapScreen";
 import ListScreen from "../screens/ListScreen";
 import DetailScreen from '../screens/DetailScreen';
 import ErfolgeScreen from '../screens/ErfolgeScreen';
+import TourScreen from '../screens/TourScreen';
 import Colors from "../constants/Colors";
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import ThreeDimModelScreen from "../screens/ThreeDimModelScreen";
@@ -58,6 +59,15 @@ const ErfolgeScreenNavigator = createStackNavigator(
   }
 );
 
+const TourScreenNavigator = createStackNavigator(
+  {
+    Touren: TourScreen,
+  },
+  {
+    defaultNavigationOptions: defaultStackNavigationOptions,
+  }
+);
+
 const myTabScreenConfig = {
   Karte: {
     screen: MapScreenNavigator,
@@ -82,6 +92,15 @@ const myTabScreenConfig = {
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
         return <Ionicons name='ribbon' size={25} color={tabInfo.tintColor}></Ionicons>;
+      },
+      tabBarColor: Colors.primary,
+    },
+  },
+  Touren: {
+    screen: TourScreenNavigator,
+    navigationOptions: {
+      tabBarIcon: (tabInfo) => {
+        return <Ionicons name='eye-outline' size={25} color={tabInfo.tintColor}></Ionicons>;
       },
       tabBarColor: Colors.primary,
     },
