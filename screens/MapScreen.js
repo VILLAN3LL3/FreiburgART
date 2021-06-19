@@ -5,6 +5,7 @@ import MapView, { Marker, Callout, CalloutSubview } from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 import MarkerCallout from '../components/MarkerCallout';
 import { SearchBar } from 'react-native-elements';
+import LogoTitle from '../components/LogoTitle';
 
 // https://github.com/react-native-maps/react-native-maps
 // https://dev-yakuza.posstree.com/en/react-native/react-native-maps/
@@ -45,7 +46,13 @@ const MapScreen = (props) => {
 
   const updateSearch = (search) => {
     setSearchValue(search);
-    setFilteredArtworks(artworks.filter(a => `${a.title}|${a.artists.join('|')}|${a.material}|${a.year}|${a.dimensions}|${a.location}`.toLowerCase().includes(search.toLowerCase())));
+    setFilteredArtworks(
+      artworks.filter((a) =>
+        `${a.title}|${a.artists.join('|')}|${a.material}|${a.year}|${a.dimensions}|${a.location}`
+          .toLowerCase()
+          .includes(search.toLowerCase())
+      )
+    );
   };
 
   return (
@@ -103,5 +110,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+MapScreen.navigationOptions = () => {
+  return { 
+    headerTitle: () => <LogoTitle />,
+  };
+};
 
 export default MapScreen;
