@@ -1,14 +1,15 @@
-import React from "react";
-import { createStackNavigator } from "react-navigation-stack";
-import { createAppContainer } from "react-navigation";
-import { Ionicons } from "@expo/vector-icons";
-import MapScreen from "../screens/MapScreen";
-import ListScreen from "../screens/ListScreen";
+import React from 'react';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
+import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
+import MapScreen from '../screens/MapScreen';
+import ListScreen from '../screens/ListScreen';
 import DetailScreen from '../screens/DetailScreen';
 import ErfolgeScreen from '../screens/ErfolgeScreen';
-import Colors from "../constants/Colors";
+import Colors from '../constants/Colors';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import ThreeDimModelScreen from "../screens/ThreeDimModelScreen";
+import ThreeDimModelScreen from '../screens/ThreeDimModelScreen';
+import TourScreen from '../screens/TourScreen';
 
 const defaultStackNavigationOptions = {
   headerStyle: {
@@ -16,7 +17,7 @@ const defaultStackNavigationOptions = {
   },
   headerTitleStyle: {},
   headerBackTitleStyle: {},
-  headerTintColor: "white",
+  headerTintColor: 'white',
 };
 
 const MapScreenNavigator = createStackNavigator(
@@ -50,12 +51,23 @@ const ErfolgeScreenNavigator = createStackNavigator(
   }
 );
 
+const TourScreenNavigator = createStackNavigator(
+  {
+    Touren: TourScreen,
+  },
+  {
+    defaultNavigationOptions: defaultStackNavigationOptions,
+  }
+);
+
 const myTabScreenConfig = {
   Karte: {
     screen: MapScreenNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
-        return <Ionicons name='map' size={25} color={tabInfo.tintColor}></Ionicons>;
+        return (
+          <Ionicons name='map' size={25} color={tabInfo.tintColor}></Ionicons>
+        );
       },
       tabBarColor: Colors.primary,
     },
@@ -64,7 +76,24 @@ const myTabScreenConfig = {
     screen: ListScreenNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
-        return <Ionicons name='list' size={25} color={tabInfo.tintColor}></Ionicons>;
+        return (
+          <Ionicons name='list' size={25} color={tabInfo.tintColor}></Ionicons>
+        );
+      },
+      tabBarColor: Colors.primary,
+    },
+  },
+  Touren: {
+    screen: TourScreenNavigator,
+    navigationOptions: {
+      tabBarIcon: (tabInfo) => {
+        return (
+          <FontAwesome5
+            name='route'
+            size={25}
+            color={tabInfo.tintColor}
+          ></FontAwesome5>
+        );
       },
       tabBarColor: Colors.primary,
     },
@@ -73,7 +102,13 @@ const myTabScreenConfig = {
     screen: ErfolgeScreenNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
-        return <Ionicons name='ribbon' size={25} color={tabInfo.tintColor}></Ionicons>;
+        return (
+          <Ionicons
+            name='ribbon'
+            size={25}
+            color={tabInfo.tintColor}
+          ></Ionicons>
+        );
       },
       tabBarColor: Colors.primary,
     },
@@ -81,8 +116,8 @@ const myTabScreenConfig = {
 };
 
 const TabNavigator = createMaterialBottomTabNavigator(myTabScreenConfig, {
-        activeColor: 'white',
-        shifting: true,
-      });
+  activeColor: 'white',
+  shifting: true,
+});
 
 export default createAppContainer(TabNavigator);
