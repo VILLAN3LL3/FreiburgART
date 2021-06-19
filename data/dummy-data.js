@@ -12,7 +12,7 @@ export const ARTWORK_LIST = [
     47.99389,
     7.85218,
     ['https://de.wikipedia.org/wiki/Ulrich_Rückriem'],
-    'https://res.cloudinary.com/julidarockt/image/upload/v1624046770/Ru%CC%88ckriem_Augustinerplatz.jpg',
+    'https://i.imgur.com/alsKGLp.jpg',
     true
   ),
   new Artwork(
@@ -26,7 +26,7 @@ export const ARTWORK_LIST = [
     47.9958,
     7.84147,
     ['https://de.wikipedia.org/wiki/Andrea_Zaumseil'],
-    'https://res.cloudinary.com/julidarockt/image/upload/v1624046776/Zaumseil_Tanzende_Kegel.jpg',
+    'https://i.imgur.com/AISN3Hn.jpg',
     true
   ),
   new Artwork(
@@ -40,7 +40,7 @@ export const ARTWORK_LIST = [
     47.98511,
     7.85273,
     ['https://de.wikipedia.org/wiki/Thaddäus_Hüppi'],
-    'https://res.cloudinary.com/julidarockt/image/upload/v1624046772/Hu%CC%88ppi_Bu%CC%88ste_auf_Sa%CC%88ule_Wiehre_I.jpg',
+    'https://i.imgur.com/9ObObUq.jpg',
     true
   ),
   new Artwork(
@@ -54,7 +54,7 @@ export const ARTWORK_LIST = [
     47.98514,
     7.85182,
     [],
-    'https://res.cloudinary.com/julidarockt/image/upload/v1624046772/Hohorst_Badisches_Saugkalb.jpg',
+    'https://i.imgur.com/V56W6Uy.jpg',
     true
   ),
   new Artwork(
@@ -71,7 +71,7 @@ export const ARTWORK_LIST = [
       'https://de.wikipedia.org/wiki/Claes_Oldenburg',
       'https://fudder.de/kunst-die-rumsteht-1-claes-oldenburgs-wasserschlauch--118361228.html',
     ],
-    'https://res.cloudinary.com/julidarockt/image/upload/v1624046772/Oldenburg_Gartenschlauch.jpg',
+    'https://i.imgur.com/BVrL0Sy.jpg',
     false
   ),
   new Artwork(
@@ -85,7 +85,7 @@ export const ARTWORK_LIST = [
     48.00069,
     7.84452,
     ['https://de.wikipedia.org/wiki/Berto_Lardera'],
-    'https://res.cloudinary.com/julidarockt/image/upload/v1624046775/Ladera_Heroischer_Rythmus.jpg',
+    'https://i.imgur.com/0btJySE.jpg',
     true
   ),
 ];
