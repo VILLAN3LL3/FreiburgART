@@ -11,15 +11,26 @@ const DetailScreen = (props) => {
   const artworkId = props.navigation.getParam('artworkId');
   const currentArtwork = artworks.find((artwork) => artwork.id === artworkId);
   let showThreeButton = false;
-  if(currentArtwork.sketchfabUri)
-  {
+  if (currentArtwork.sketchfabUri) {
     showThreeButton = true;
   }
-
   return (
     <View style={styles.container}>
       <ScrollView>
-        {/* <View style={{ ...styles.container, ...props.style }}> */}
+        {showThreeButton && (
+            <Button
+              color={Colors.primaryDisabled}
+              title='In 3D ansehen'
+              onPress={() => {
+                props.navigation.navigate({
+                  routeName: 'ThreeDimModel',
+                  params: {
+                    artworkId: currentArtwork.id,
+                  },
+                });
+              }}
+            />
+        )}
         <Image
           style={styles.image}
           source={{ uri: currentArtwork.imageUrl }}
@@ -48,7 +59,7 @@ const DetailScreen = (props) => {
               <ListItem.Subtitle>{currentArtwork.year}</ListItem.Subtitle>
             </ListItem.Content>
           </ListItem>
-          <ListItem key='artists' bottomDivider>
+          <ListItem key='type' bottomDivider>
             <ListItem.Content>
               <ListItem.Title>Art des Kunstwerks</ListItem.Title>
               <ListItem.Subtitle>{currentArtwork.type}</ListItem.Subtitle>
@@ -83,20 +94,6 @@ const DetailScreen = (props) => {
             </ListItem.Content>
           </ListItem>
         </View>
-        {showThreeButton && (
-          <Button
-            color={Colors.primaryDisabled}
-            title='In 3D ansehen'
-            onPress={() => {
-              props.navigation.navigate({
-                routeName: 'ThreeDimModel',
-                params: {
-                  artworkId: currentArtwork.id,
-                },
-              });
-            }}
-          />
-        )}
       </ScrollView>
       <SpeedDial
         isOpen={open}

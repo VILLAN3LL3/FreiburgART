@@ -49,7 +49,8 @@ export const ARTWORK_LIST = [
     'https://i.imgur.com/9ObObUq.jpg',
     true,
     new Date(2021, 6, 19),
-    'Skulptur'
+    'Skulptur',
+    ''
   ),
   new Artwork(
     4,
@@ -94,7 +95,7 @@ export const ARTWORK_LIST = [
     ['Lardera, Berto'],
     '1969',
     'Stahl',
-    '',
+    'Unbekannt',
     'Bahnhof',
     48.00069,
     7.84452,
@@ -111,7 +112,7 @@ export const ARTWORK_LIST = [
     ['Sare und Yukie Nagai'],
     'Ca. 2019',
     'Farbe auf Hauswand',
-    '',
+    'Unbekannt',
     'Vauban',
     47.976716,
     7.829016,
@@ -131,7 +132,7 @@ export const ARTWORK_LIST = [
     ['Marc C. Woehr und Joschka Bödecker'],
     '2019',
     'Druck auf Netzplane',
-    '',
+    'Unbekannt',
     'Universität',
     47.994283,
     7.844947,
@@ -149,9 +150,9 @@ export const ARTWORK_LIST = [
     9,
     'Die Liegende',
     ['Henry Moore'],
-    '',
+    'Unbekannt',
     'Reclining Figure',
-    '',
+    'Unbekannt',
     'Platz der alten Synagoge',
     47.994932316280696,
     7.846101023833724,
@@ -161,5 +162,5 @@ export const ARTWORK_LIST = [
     new Date(2021, 2, 12),
     'Skulptur',
     'https://sketchfab.com/models/1c54dfde8bba4cce99e53635c71244b5/embed'
-    )
+  ),
 ];
