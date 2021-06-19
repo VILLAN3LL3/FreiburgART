@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { StyleSheet, ScrollView, Text, View, ActivityIndicator, Button, Linking } from 'react-native';
+import {
+  StyleSheet,
+  ScrollView,
+  Text,
+  View,
+  ActivityIndicator,
+  Button,
+  Linking,
+} from 'react-native';
 import { ARTWORK_LIST } from '../data/dummy-data';
 import Colors from '../constants/Colors';
 import { SpeedDial, Image, SocialIcon, ListItem } from 'react-native-elements';
@@ -19,8 +27,8 @@ const DetailScreen = (props) => {
       <ScrollView>
         {showThreeButton && (
           <Button
-            color={Colors.primaryDisabled}
-            title='In 3D ansehen'
+            color={Colors.third}
+            title='3D Modell oder Video verfügbar!'
             onPress={() => {
               props.navigation.navigate({
                 routeName: 'ThreeDimModel',
@@ -37,16 +45,23 @@ const DetailScreen = (props) => {
           PlaceholderContent={<ActivityIndicator />}
         />
         {currentArtwork.visitedOn && (
-          <Text style={{ paddingLeft: 5 }}>Besucht am {GetGermanDateString(currentArtwork.visitedOn)}</Text>
+          <Text style={{ paddingLeft: 5 }}>
+            Besucht am {GetGermanDateString(currentArtwork.visitedOn)}
+          </Text>
         )}
         {!currentArtwork.isCurrentlyAccessible && (
-          <Text style={{ paddingLeft: 5, color: 'red' }}>Zur Zeit nicht zugänglich</Text>
+          <Text style={{ paddingLeft: 5, color: 'red' }}>
+            Zur Zeit nicht zugänglich
+          </Text>
         )}
         <View
           style={{
             flexDirection: 'row',
             justifyContent: 'flex-end',
-            marginTop: currentArtwork.visitedOn || !currentArtwork.isCurrentlyAccessible ? -55 : -35,
+            marginTop:
+              currentArtwork.visitedOn || !currentArtwork.isCurrentlyAccessible
+                ? -55
+                : -35,
           }}
         >
           <SocialIcon type='facebook' />
@@ -57,7 +72,9 @@ const DetailScreen = (props) => {
           <ListItem key='artists' bottomDivider>
             <ListItem.Content>
               <ListItem.Title>Künstler</ListItem.Title>
-              <ListItem.Subtitle>{currentArtwork.artists.join(', ')}</ListItem.Subtitle>
+              <ListItem.Subtitle>
+                {currentArtwork.artists.join(', ')}
+              </ListItem.Subtitle>
             </ListItem.Content>
           </ListItem>
           <ListItem key='year' bottomDivider>
@@ -94,7 +111,11 @@ const DetailScreen = (props) => {
             <ListItem.Content>
               <ListItem.Title>Weiterführende Links</ListItem.Title>
               {currentArtwork.infoUrls.map((url) => (
-                <Text key={url} style={{ color: 'blue' }} onPress={() => Linking.openURL(url)}>
+                <Text
+                  key={url}
+                  style={{ color: 'blue' }}
+                  onPress={() => Linking.openURL(url)}
+                >
                   {url}
                 </Text>
               ))}
