@@ -124,7 +124,7 @@ export const ARTWORK_LIST = [
     true,
     new Date(2021, 1, 24),
     'Graffiti',
-    ''
+    'https://www.youtube.com/embed/CeB8IP_Iuao'
   ),
   new Artwork(
     8,
