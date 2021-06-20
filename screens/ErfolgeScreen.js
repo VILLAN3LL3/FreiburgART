@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.secondary,
     flex: 1,
     width: '100%',
-    padding: 10,
+    paddingHorizontal: 10,
     borderTopColor: 'gray',
     borderTopWidth: 10,
   },

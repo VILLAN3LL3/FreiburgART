@@ -6,7 +6,9 @@ import { SearchBar } from 'react-native-elements';
 import { GetTourPicture } from '../services/artwork-service';
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex: 1,
+  },
   row: {
     display: 'flex',
     flexDirection: 'row',
