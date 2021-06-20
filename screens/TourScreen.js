@@ -100,9 +100,8 @@ const TourScreen = (props) => {
   const updateSearch = (search) => {
     setSearchValue(search);
     setFilteredTours(
-        // TODO: adapt to tours
-      tours.filter((a) =>
-        `${a.title}|${a.artists.join('|')}|${a.material}|${a.year}|${a.dimensions}|${a.location}|${a.type}`
+      tours.filter((t) =>
+        `${t.title}|${t.distance}|${t.time}|${t.description}`
           .toLowerCase()
           .includes(search.toLowerCase())
       )
