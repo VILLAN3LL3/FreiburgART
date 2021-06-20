@@ -159,7 +159,7 @@ export const ARTWORK_LIST = [
     ['https://de.wikipedia.org/wiki/Henry_Moore'],
     'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Reclining_Figure_Henry_Moore_%28Freiburg_im_Breisgau%29_jm53329_ji.jpg/750px-Reclining_Figure_Henry_Moore_%28Freiburg_im_Breisgau%29_jm53329_ji.jpg',
     true,
-    new Date(2021, 2, 12),
+    null,
     'Skulptur',
     'https://sketchfab.com/models/1c54dfde8bba4cce99e53635c71244b5/embed'
   ),

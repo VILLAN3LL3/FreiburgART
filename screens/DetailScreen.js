@@ -186,6 +186,7 @@ const DetailScreen = (props) => {
             icon={{ name: 'check-circle', color: '#fff' }}
             title='Als besucht markieren'
             onPress={() => {
+              setOpen(false);
               props.navigation.navigate('Quiz');
               currentArtwork.visitedOn = new Date();
               setCurrentArtwork({ ...currentArtwork });
