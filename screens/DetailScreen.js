@@ -29,13 +29,13 @@ const DetailScreen = (props) => {
     setRatingOverlayVisible(false);
   };
   const onShareButtonPress = () => {
-    Toast.show('Danke für\'s Teilen :-)', {
+    Toast.show("Danke für's Teilen :-)", {
       duration: Toast.durations.LONG,
       backgroundColor: Colors.fourth,
       textColor: 'black',
       position: Toast.positions.TOP,
     });
-  }
+  };
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -55,7 +55,7 @@ const DetailScreen = (props) => {
         )}
         <Image
           style={styles.image}
-          source={{ uri: currentArtwork.imageUrl }}
+          source={currentArtwork.imageUrl ? { uri: currentArtwork.imageUrl } : require('../assets/dummy-artwork.jpg')}
           PlaceholderContent={<ActivityIndicator />}
         />
         {currentArtwork.visitedOn && (
@@ -76,52 +76,66 @@ const DetailScreen = (props) => {
           <SocialIcon type='instagram' onPress={onShareButtonPress} />
         </View>
         <View style={styles.textContainer}>
-          <ListItem key='artists' bottomDivider>
-            <ListItem.Content>
-              <ListItem.Title>Künstler</ListItem.Title>
-              <ListItem.Subtitle>{currentArtwork.artists.join(', ')}</ListItem.Subtitle>
-            </ListItem.Content>
-          </ListItem>
-          <ListItem key='year' bottomDivider>
-            <ListItem.Content>
-              <ListItem.Title>Jahr der Fertigstellung</ListItem.Title>
-              <ListItem.Subtitle>{currentArtwork.year}</ListItem.Subtitle>
-            </ListItem.Content>
-          </ListItem>
-          <ListItem key='type' bottomDivider>
-            <ListItem.Content>
-              <ListItem.Title>Art des Kunstwerks</ListItem.Title>
-              <ListItem.Subtitle>{currentArtwork.type}</ListItem.Subtitle>
-            </ListItem.Content>
-          </ListItem>
-          <ListItem key='location' bottomDivider>
-            <ListItem.Content>
-              <ListItem.Title>Ort</ListItem.Title>
-              <ListItem.Subtitle>{currentArtwork.location}</ListItem.Subtitle>
-            </ListItem.Content>
-          </ListItem>
-          <ListItem key='material' bottomDivider>
-            <ListItem.Content>
-              <ListItem.Title>Verwendete Materialien</ListItem.Title>
-              <ListItem.Subtitle>{currentArtwork.material}</ListItem.Subtitle>
-            </ListItem.Content>
-          </ListItem>
-          <ListItem key='dimensions' bottomDivider>
-            <ListItem.Content>
-              <ListItem.Title>Maße</ListItem.Title>
-              <ListItem.Subtitle>{currentArtwork.dimensions}</ListItem.Subtitle>
-            </ListItem.Content>
-          </ListItem>
-          <ListItem key='links' bottomDivider>
-            <ListItem.Content>
-              <ListItem.Title>Weiterführende Links</ListItem.Title>
-              {currentArtwork.infoUrls.map((url) => (
-                <Text key={url} style={{ color: 'blue' }} onPress={() => Linking.openURL(url)}>
-                  {url}
-                </Text>
-              ))}
-            </ListItem.Content>
-          </ListItem>
+          {currentArtwork.artists.length > 0 && (
+            <ListItem key='artists' bottomDivider>
+              <ListItem.Content>
+                <ListItem.Title>Künstler</ListItem.Title>
+                <ListItem.Subtitle>{currentArtwork.artists.join(', ')}</ListItem.Subtitle>
+              </ListItem.Content>
+            </ListItem>
+          )}
+          {currentArtwork.year && (
+            <ListItem key='year' bottomDivider>
+              <ListItem.Content>
+                <ListItem.Title>Jahr der Fertigstellung</ListItem.Title>
+                <ListItem.Subtitle>{currentArtwork.year}</ListItem.Subtitle>
+              </ListItem.Content>
+            </ListItem>
+          )}
+          {currentArtwork.type && (
+            <ListItem key='type' bottomDivider>
+              <ListItem.Content>
+                <ListItem.Title>Art des Kunstwerks</ListItem.Title>
+                <ListItem.Subtitle>{currentArtwork.type}</ListItem.Subtitle>
+              </ListItem.Content>
+            </ListItem>
+          )}
+          {currentArtwork.location && (
+            <ListItem key='location' bottomDivider>
+              <ListItem.Content>
+                <ListItem.Title>Ort</ListItem.Title>
+                <ListItem.Subtitle>{currentArtwork.location}</ListItem.Subtitle>
+              </ListItem.Content>
+            </ListItem>
+          )}
+          {currentArtwork.material && (
+            <ListItem key='material' bottomDivider>
+              <ListItem.Content>
+                <ListItem.Title>Verwendete Materialien</ListItem.Title>
+                <ListItem.Subtitle>{currentArtwork.material}</ListItem.Subtitle>
+              </ListItem.Content>
+            </ListItem>
+          )}
+          {currentArtwork.dimensions && (
+            <ListItem key='dimensions' bottomDivider>
+              <ListItem.Content>
+                <ListItem.Title>Maße</ListItem.Title>
+                <ListItem.Subtitle>{currentArtwork.dimensions}</ListItem.Subtitle>
+              </ListItem.Content>
+            </ListItem>
+          )}
+          {currentArtwork.infoUrls.length > 0 && (
+            <ListItem key='links' bottomDivider>
+              <ListItem.Content>
+                <ListItem.Title>Weiterführende Links</ListItem.Title>
+                {currentArtwork.infoUrls.map((url) => (
+                  <Text key={url} style={{ color: 'blue' }} onPress={() => Linking.openURL(url)}>
+                    {url}
+                  </Text>
+                ))}
+              </ListItem.Content>
+            </ListItem>
+          )}
         </View>
       </ScrollView>
       <SpeedDial
