@@ -7,9 +7,10 @@ import ListScreen from '../screens/ListScreen';
 import DetailScreen from '../screens/DetailScreen';
 import ErfolgeScreen from '../screens/ErfolgeScreen';
 import TourScreen from '../screens/TourScreen';
-import Colors from "../constants/Colors";
+import Colors from '../constants/Colors';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import ThreeDimModelScreen from '../screens/ThreeDimModelScreen';
+import QuizScreen from '../screens/QuizScreen';
 
 const defaultStackNavigationOptions = {
   headerStyle: {
@@ -25,6 +26,7 @@ const MapScreenNavigator = createStackNavigator(
     Karte: MapScreen,
     Details: DetailScreen,
     ThreeDimModel: ThreeDimModelScreen,
+    Quiz: QuizScreen,
   },
   {
     defaultNavigationOptions: defaultStackNavigationOptions,
@@ -36,6 +38,7 @@ const ListScreenNavigator = createStackNavigator(
     Liste: ListScreen,
     Details: DetailScreen,
     ThreeDimModel: ThreeDimModelScreen,
+    Quiz: QuizScreen,
   },
   {
     defaultNavigationOptions: defaultStackNavigationOptions,
