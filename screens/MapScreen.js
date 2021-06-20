@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Dimensions } from 'react-native';
+import { View, Dimensions, StyleSheet } from 'react-native';
 import { ARTWORK_LIST } from '../data/dummy-data';
 import MapView, { Marker, Callout } from 'react-native-maps';
 import MarkerCallout from '../components/MarkerCallout';
 import { SearchBar } from 'react-native-elements';
 import LogoTitle from '../components/LogoTitle';
 import { GetIconSource } from '../services/artwork-service';
-import { Button, Text, Overlay } from 'react-native-elements';
+import { Button, Text, Overlay, Image } from 'react-native-elements';
 
 const MapScreen = (props) => {
   const artworks = ARTWORK_LIST;
@@ -87,7 +87,33 @@ const MapScreen = (props) => {
       <Overlay isVisible={overlayVisible} onBackdropPress={toggleOverlay}>
         <Text h3>Willkommen zu FreiburgArt,</Text>
         <Text h4>deiner App für Kunst im öffentlichen Raum!</Text>
-        <Text style={{marginVertical: 20}}>Starte jetzt und entdecke spannende Kunstwerke in deiner Umgebung.</Text>
+        <Text style={{ marginVertical: 20 }}>Starte jetzt und entdecke spannende Kunstwerke in deiner Umgebung.</Text>
+        <View style={{ marginBottom: 20 }}>
+          <View style={styles.legendRow}>
+            <Image source={require('../assets/walking-96.png')} style={{ width: 30, height: 30 }} />
+            <Text>Deine aktuelle Position</Text>
+          </View>
+          <View style={styles.legendRow}>
+            <Image source={require('../assets/easel-96.png')} style={{ width: 30, height: 30 }} />
+            <Text>Gemälde</Text>
+          </View>
+          <View style={styles.legendRow}>
+            <Image source={require('../assets/sculpture-96.png')} style={{ width: 30, height: 30 }} />
+            <Text>Skulptur</Text>
+          </View>
+          <View style={styles.legendRow}>
+            <Image source={require('../assets/graffiti-96.png')} style={{ width: 30, height: 30 }} />
+            <Text>Graffiti</Text>
+          </View>
+          <View style={styles.legendRow}>
+            <Image source={require('../assets/sculpture-visited-96.png')} style={{ width: 30, height: 30 }} />
+            <Text>Bereits besuchtes Kunstwerk</Text>
+          </View>
+          <View style={styles.legendRow}>
+            <Image source={require('../assets/sculpture-disabled-96.png')} style={{ width: 30, height: 30 }} />
+            <Text>Zur Zeit nicht zugängliches Kunstwerk</Text>
+          </View>
+        </View>
         <Button title="Los geht's!" onPress={toggleOverlay} />
       </Overlay>
     </View>
@@ -98,6 +124,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  legendRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 },
 });
 
 MapScreen.navigationOptions = () => {
