@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Alert, Dimensions, Image } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Dimensions } from 'react-native';
 import { ARTWORK_LIST } from '../data/dummy-data';
-import MapView, { Marker, Callout, CalloutSubview } from 'react-native-maps';
-import Geolocation from 'react-native-geolocation-service';
+import MapView, { Marker, Callout } from 'react-native-maps';
 import MarkerCallout from '../components/MarkerCallout';
 import { SearchBar } from 'react-native-elements';
 import LogoTitle from '../components/LogoTitle';
 import { GetIconSource } from '../services/artwork-service';
+import { Button, Text, Overlay } from 'react-native-elements';
 
-// https://github.com/react-native-maps/react-native-maps
-// https://dev-yakuza.posstree.com/en/react-native/react-native-maps/
 const MapScreen = (props) => {
   const artworks = ARTWORK_LIST;
   const { width, height } = Dimensions.get('window');
@@ -27,23 +25,11 @@ const MapScreen = (props) => {
   });
   const [searchValue, setSearchValue] = useState('');
   const [filteredArtworks, setFilteredArtworks] = useState(ARTWORK_LIST);
+  const [overlayVisible, setOverlayVisible] = useState(true);
 
-  // ToDo: Herausfinden, was man tun muss, damit Geolocation im Emulator funktioniert
-  // useEffect(() => {
-  //   Geolocation.getCurrentPosition(
-  //     (position) => {
-  //       const { latitude, longitude } = position.coords;
-  //       setLocation({
-  //         latitude,
-  //         longitude,
-  //       });
-  //     },
-  //     (error) => {
-  //       console.log(error.code, error.message);
-  //     },
-  //     { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
-  //   );
-  // }, []);
+  const toggleOverlay = () => {
+    setOverlayVisible(!overlayVisible);
+  };
 
   const updateSearch = (search) => {
     setSearchValue(search);
@@ -98,6 +84,12 @@ const MapScreen = (props) => {
           </Marker>
         ))}
       </MapView>
+      <Overlay isVisible={overlayVisible} onBackdropPress={toggleOverlay}>
+        <Text h3>Willkommen zu FreiburgArt,</Text>
+        <Text h4>deiner App für Kunst im öffentlichen Raum!</Text>
+        <Text style={{marginVertical: 20}}>Starte jetzt und entdecke spannende Kunstwerke in deiner Umgebung.</Text>
+        <Button title="Los geht's!" onPress={toggleOverlay} />
+      </Overlay>
     </View>
   );
 };
