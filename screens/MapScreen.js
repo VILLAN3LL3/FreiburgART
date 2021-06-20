@@ -85,7 +85,11 @@ const MapScreen = (props) => {
         ))}
       </MapView>
       <Overlay isVisible={overlayVisible} onBackdropPress={toggleOverlay}>
-        <Text h3>Willkommen zu FreiburgArt,</Text>
+        <View style={{ flexDirection: 'row' }}>
+          <Text h3>Willkommen zu</Text>
+          <Image source={require('../assets/logo.png')} style={{ width: 150, height: 50, marginHorizontal: 10 }} />
+          <Text h3>,</Text>
+        </View>
         <Text h4>deiner App für Kunst im öffentlichen Raum!</Text>
         <Text style={{ marginVertical: 20 }}>Starte jetzt und entdecke spannende Kunstwerke in deiner Umgebung.</Text>
         <View style={{ marginBottom: 20 }}>
