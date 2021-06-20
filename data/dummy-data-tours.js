@@ -15,7 +15,7 @@ export const TOUR_LIST = [
     ),
     new Tour(
         2,
-        'Herderns Schätze',
+        'Herderns Kunstwerke',
         'Bei diesem Spaziergang lernen Sie die schönsten Kunstwerke in Herdern kennen',
         '1 h, 10 min',
         '3 km',

@@ -163,4 +163,21 @@ export const ARTWORK_LIST = [
     'Skulptur',
     'https://sketchfab.com/models/1c54dfde8bba4cce99e53635c71244b5/embed'
   ),
+  new Artwork(
+    10,
+    'Stühlinger Riesen',
+    ['Gutmann, Franz'],
+    '1982/83',
+    'Betonguss',
+    'Riese 1: b 160 x h 625 x L 2850, Riese 2: b 395 x h 620 x L 2336 ',
+    'Stühlinger Kirchplatz, unter Stadtbahnbrücke, Wannerstraße',
+    47.99698,
+    7.83884,
+    [],
+    '',
+    true,
+    null,
+    'Skulptur',
+    ''
+  ),
 ];

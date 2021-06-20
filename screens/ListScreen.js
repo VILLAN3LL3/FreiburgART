@@ -94,7 +94,7 @@ const ListScreen = (props) => {
         <View>
           <View style={styles.artImageAndTitleContainer}>
             <ImageBackground
-              source={{ uri: item.imageUrl }}
+              source={item.imageUrl ? { uri: item.imageUrl } : require('../assets/dummy-artwork.jpg')}
               style={styles.backgroundImage}
             >
               <View style={styles.titleContainer}>
