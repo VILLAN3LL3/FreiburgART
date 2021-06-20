@@ -1,27 +1,33 @@
 import React, { useState } from 'react';
-import {
-  StyleSheet,
-  ScrollView,
-  Text,
-  View,
-  ActivityIndicator,
-  Button,
-  Linking,
-} from 'react-native';
+import { StyleSheet, ScrollView, Text, View, ActivityIndicator, Button, Linking } from 'react-native';
 import { ARTWORK_LIST } from '../data/dummy-data';
 import Colors from '../constants/Colors';
-import { SpeedDial, Image, SocialIcon, ListItem } from 'react-native-elements';
+import { SpeedDial, Image, SocialIcon, ListItem, Overlay, Rating } from 'react-native-elements';
 import { GetGermanDateString } from '../services/artwork-service';
+import Toast from 'react-native-root-toast';
 
 const DetailScreen = (props) => {
   const [open, setOpen] = useState(false);
   const artworks = ARTWORK_LIST;
   const artworkId = props.navigation.getParam('artworkId');
-  const currentArtwork = artworks.find((artwork) => artwork.id === artworkId);
+  const [currentArtwork, setCurrentArtwork] = useState(artworks.find((artwork) => artwork.id === artworkId));
+  const [ratingOverlayVisible, setRatingOverlayVisible] = useState(false);
   let showThreeButton = false;
   if (currentArtwork.sketchfabUri) {
     showThreeButton = true;
   }
+  const toggleOverlay = () => {
+    setRatingOverlayVisible(!ratingOverlayVisible);
+  };
+  const ratingCompleted = (rating) => {
+    Toast.show(`Du hast das Kunstwerk mit ${rating} Sternen bewertet.`, {
+      duration: Toast.durations.LONG,
+      backgroundColor: Colors.fourth,
+      textColor: 'black',
+      position: Toast.positions.TOP,
+    });
+    setRatingOverlayVisible(false);
+  };
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -45,23 +51,16 @@ const DetailScreen = (props) => {
           PlaceholderContent={<ActivityIndicator />}
         />
         {currentArtwork.visitedOn && (
-          <Text style={{ paddingLeft: 5 }}>
-            Besucht am {GetGermanDateString(currentArtwork.visitedOn)}
-          </Text>
+          <Text style={{ paddingLeft: 5 }}>Besucht am {GetGermanDateString(currentArtwork.visitedOn)}</Text>
         )}
         {!currentArtwork.isCurrentlyAccessible && (
-          <Text style={{ paddingLeft: 5, color: 'red' }}>
-            Zur Zeit nicht zugänglich
-          </Text>
+          <Text style={{ paddingLeft: 5, color: 'red' }}>Zur Zeit nicht zugänglich</Text>
         )}
         <View
           style={{
             flexDirection: 'row',
             justifyContent: 'flex-end',
-            marginTop:
-              currentArtwork.visitedOn || !currentArtwork.isCurrentlyAccessible
-                ? -55
-                : -35,
+            marginTop: currentArtwork.visitedOn || !currentArtwork.isCurrentlyAccessible ? -55 : -35,
           }}
         >
           <SocialIcon type='facebook' />
@@ -72,9 +71,7 @@ const DetailScreen = (props) => {
           <ListItem key='artists' bottomDivider>
             <ListItem.Content>
               <ListItem.Title>Künstler</ListItem.Title>
-              <ListItem.Subtitle>
-                {currentArtwork.artists.join(', ')}
-              </ListItem.Subtitle>
+              <ListItem.Subtitle>{currentArtwork.artists.join(', ')}</ListItem.Subtitle>
             </ListItem.Content>
           </ListItem>
           <ListItem key='year' bottomDivider>
@@ -111,11 +108,7 @@ const DetailScreen = (props) => {
             <ListItem.Content>
               <ListItem.Title>Weiterführende Links</ListItem.Title>
               {currentArtwork.infoUrls.map((url) => (
-                <Text
-                  key={url}
-                  style={{ color: 'blue' }}
-                  onPress={() => Linking.openURL(url)}
-                >
+                <Text key={url} style={{ color: 'blue' }} onPress={() => Linking.openURL(url)}>
                   {url}
                 </Text>
               ))}
@@ -130,35 +123,67 @@ const DetailScreen = (props) => {
         onOpen={() => setOpen(!open)}
         onClose={() => setOpen(!open)}
       >
-        {!currentArtwork.visitedOn && (
+        {!currentArtwork.visitedOn && currentArtwork.isCurrentlyAccessible && (
           <SpeedDial.Action
             icon={{ name: 'check-circle', color: '#fff' }}
             title='Als besucht markieren'
-            onPress={() => console.log('Mark artwork as visited')}
+            onPress={() => {
+              currentArtwork.visitedOn = new Date();
+              setCurrentArtwork({ ...currentArtwork });
+              Toast.show('Kunstwerk als besucht markiert', {
+                duration: Toast.durations.LONG,
+                backgroundColor: Colors.fourth,
+                textColor: 'black',
+                position: Toast.positions.TOP,
+              });
+            }}
           />
         )}
 
         <SpeedDial.Action
-          icon={{ name: 'share', color: '#fff' }}
-          title='Teilen'
-          onPress={() => console.log('Share artwork')}
-        />
-        <SpeedDial.Action
           icon={{ name: 'star-border', color: '#fff' }}
-          title='Bewerten'
-          onPress={() => console.log('Rate artwork')}
+          title='Kunstwerk bewerten'
+          onPress={() => {
+            toggleOverlay();
+            setOpen(false);
+          }}
         />
         <SpeedDial.Action
           icon={{ name: 'favorite-border', color: '#fff' }}
           title='Als Favorit markieren'
-          onPress={() => console.log('Set artwork as favorite')}
+          onPress={() => {
+            Toast.show('Kunstwerk als Favorit markiert', {
+              duration: Toast.durations.LONG,
+              backgroundColor: Colors.fourth,
+              textColor: 'black',
+              position: Toast.positions.TOP,
+            });
+            setOpen(false);
+          }}
         />
         <SpeedDial.Action
           icon={{ name: 'euro', color: '#fff' }}
-          title='Spenden'
-          onPress={() => console.log('Donate')}
+          title='Spende an den Künstler'
+          onPress={() => {
+            Toast.show('Herzlichen Dank für Ihre Spende!', {
+              duration: Toast.durations.LONG,
+              backgroundColor: Colors.fourth,
+              textColor: 'black',
+              position: Toast.positions.TOP,
+            });
+            setOpen(false);
+          }}
         />
       </SpeedDial>
+      <Overlay isVisible={ratingOverlayVisible} onBackdropPress={toggleOverlay}>
+        <Text>Bewerte das Kunstwerk:</Text>
+        <Rating
+          showRating
+          onFinishRating={ratingCompleted}
+          style={{ paddingVertical: 10 }}
+          startingValue={0}
+        />
+      </Overlay>
     </View>
   );
 };

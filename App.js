@@ -5,6 +5,7 @@ import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import Colors from './constants/Colors';
 import { ThemeProvider } from 'react-native-elements';
+import { RootSiblingParent } from 'react-native-root-siblings';
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -34,9 +35,11 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <HackathonNavigator />
-    </ThemeProvider>
+    <RootSiblingParent>
+      <ThemeProvider theme={theme}>
+        <HackathonNavigator />
+      </ThemeProvider>
+    </RootSiblingParent>
   );
 }
 
