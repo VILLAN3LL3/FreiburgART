@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, FlatList, Button, TouchableOpacity, Imag
 import { TOUR_LIST } from '../data/dummy-data-tours';
 import Colors from '../constants/Colors';
 import { SearchBar } from 'react-native-elements';
+import { GetTourPicture } from '../services/artwork-service';
 
 const styles = StyleSheet.create({
   container: {},
@@ -49,6 +50,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 10,
     backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'flex-end',
   },
   headerSecond: {
     fontWeight: 'bold',
@@ -111,7 +113,9 @@ const TourScreen = (props) => {
     <View style={{ ...styles.productItemContainer, ...props.style }}>
         <View>
           <View style={styles.productImageAndTitleContainer}>
-            <ImageBackground source={{ uri: item.imageUrl }} style={styles.backgroundImage}>
+            {/* <ImageBackground source={{ uri: item.imageUrl }} style={styles.backgroundImage}> */}
+            {/* <ImageBackground source={GetTourPicture(item.id)} style={{ width: 400, height: 200, marginRight: 5 }}> */}
+            <ImageBackground source={GetTourPicture(item)} style={styles.backgroundImage}>
               <View style={styles.titleContainer}>
                 <Text style={styles.title}>{item.title}</Text>
               </View>

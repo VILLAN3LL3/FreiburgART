@@ -31,6 +31,18 @@ export const GetIconSource = (artwork) => {
   }
 };
 
+export const GetTourPicture = (tour) => {
+      switch (tour.id) {
+        case 1:
+          return require('../assets/tour_graffiti.png');
+        case 2:
+          return require('../assets/tour_herdern.png');
+        default:
+          return require('../assets/tour_random.png');
+      }
+    }
+    
+
 export const GetGermanDateString = (date) => {
   return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 }

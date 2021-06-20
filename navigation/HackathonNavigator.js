@@ -33,7 +33,7 @@ const MapScreenNavigator = createStackNavigator(
 
 const ListScreenNavigator = createStackNavigator(
   {
-    Liste: ListScreen,
+    Kunstwerke: ListScreen,
     Details: DetailScreen,
     ThreeDimModel: ThreeDimModelScreen,
   },
@@ -72,7 +72,7 @@ const myTabScreenConfig = {
       tabBarColor: Colors.primary,
     },
   },
-  Liste: {
+  Kunstwerke: {
     screen: ListScreenNavigator,
     navigationOptions: {
       tabBarIcon: (tabInfo) => {
