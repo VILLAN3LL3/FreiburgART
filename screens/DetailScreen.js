@@ -28,6 +28,14 @@ const DetailScreen = (props) => {
     });
     setRatingOverlayVisible(false);
   };
+  const onShareButtonPress = () => {
+    Toast.show('Danke für\'s Teilen :-)', {
+      duration: Toast.durations.LONG,
+      backgroundColor: Colors.fourth,
+      textColor: 'black',
+      position: Toast.positions.TOP,
+    });
+  }
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -63,9 +71,9 @@ const DetailScreen = (props) => {
             marginTop: currentArtwork.visitedOn || !currentArtwork.isCurrentlyAccessible ? -55 : -35,
           }}
         >
-          <SocialIcon type='facebook' />
-          <SocialIcon type='twitter' />
-          <SocialIcon type='instagram' />
+          <SocialIcon type='facebook' onPress={onShareButtonPress} />
+          <SocialIcon type='twitter' onPress={onShareButtonPress} />
+          <SocialIcon type='instagram' onPress={onShareButtonPress} />
         </View>
         <View style={styles.textContainer}>
           <ListItem key='artists' bottomDivider>
@@ -177,12 +185,7 @@ const DetailScreen = (props) => {
       </SpeedDial>
       <Overlay isVisible={ratingOverlayVisible} onBackdropPress={toggleOverlay}>
         <Text>Bewerte das Kunstwerk:</Text>
-        <Rating
-          showRating
-          onFinishRating={ratingCompleted}
-          style={{ paddingVertical: 10 }}
-          startingValue={0}
-        />
+        <Rating showRating onFinishRating={ratingCompleted} style={{ paddingVertical: 10 }} startingValue={0} />
       </Overlay>
     </View>
   );
