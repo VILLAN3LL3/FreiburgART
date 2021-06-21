@@ -64,12 +64,4 @@ Ein ganz besonderer Dank geht auch an unseren Kollegen Daniel Denzinger, der sic
 Ein weiteres Dankeschön geht außerdem an Rayek Nabulsi, der uns überhaupt erst auf den Hackathon aufmerksam gemacht hat und immer für organisatorische Fragen zur Verfügung stand.
 
 ## Hinweise zum Demo-Link
-Die App wurde mit expo veröffentlicht. Per QR-Code kann sie auf Android-Devices ausgeführt werden. Technisch könnte sie auch auf iOS-Devices ausgeführt werden, leider verbietet Apple dies aber zur Zeit. 
-
-## Was wurde bereits vor dem Hackathon vorbereitet?
-- Auswahl der Challenge
-- Fotografieren einiger Kunstwerke durch Daniel Denzinger
-- Wir haben uns darauf geeinigt, React Native und Github zu verwenden
-- Zwei Teammitglieder haben im Vorfeld bereits in ein Tutorial zu React Native reingeschnuppert
-
-* We use icons from [icons8](https://icons8.com):
+Die App wurde mit expo veröffentlicht. Per QR-Code kann sie auf Android-Devices ausgeführt werden. Technisch könnte sie auch auf iOS-Devices ausgeführt werden, leider verbietet Apple dies aber zur Zeit.
