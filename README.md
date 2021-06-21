@@ -1,7 +1,11 @@
 # Freiburg Hackathon 2021 - Challenge: KUNST IM ÖFFENTLICHEN RAUM
 
-![FreiburgArt](https://i.imgur.com/90G9T1P.png)
 [![YouTube video](https://img.youtube.com/vi/bdpGubNyo3w/0.jpg)](https://youtu.be/bdpGubNyo3w)
+
+[See the whole documentation (German) and app demo at DevPost](https://devpost.com/software/challenge-offentlicher-raum)
+
+[Try the app with expo (Android only)](https://expo.io/@hackathonfreiburg2021/hack-fr-2021)
+
 ## Inspiration
 
 Zahlreiche spannende Kunstwerke verschönen ganzjährig oder saisonal die Stadt. 
