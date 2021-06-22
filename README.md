@@ -1,8 +1,15 @@
-# Freiburg Hackathon 2021 - Challenge: KUNST IM ÖFFENTLICHEN RAUM
+# Freiburg Hackathon 2021 Kunst und Kultur - Challenge: KUNST IM ÖFFENTLICHEN RAUM
+
+We nailed it! 🤘😁🤘 
+With the "FreiburgART" app, our team is **one of the three winners** of the Freiburg Hackathon 2021 "Kunst und Kultur" (art and culture) and has also won the **bz.medien special prize**. 
+The app makes art in public spaces accessible to everyone in a playful way. 
+We had a lot of fun and learned a lot in the two days.
+
+📽 Check out our pitch video on YouTube:
 
 [![YouTube video](https://img.youtube.com/vi/bdpGubNyo3w/0.jpg)](https://youtu.be/bdpGubNyo3w)
 
-[See the whole documentation (German) and app demo at DevPost](https://devpost.com/software/challenge-offentlicher-raum)
+[📱 The project documentation (in German) and demo can be found here](https://devpost.com/software/challenge-offentlicher-raum)
 
 [Try the app with expo (Android only)](https://expo.io/@hackathonfreiburg2021/hack-fr-2021)
 
